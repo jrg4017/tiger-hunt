@@ -13,10 +13,18 @@
 		3F9194C11DF794E8009E2D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194BF1DF794E8009E2D83 /* Main.storyboard */; };
 		3F9194C31DF794F2009E2D83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C21DF794F2009E2D83 /* Assets.xcassets */; };
 		3F9194C61DF794F4009E2D83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C41DF794F4009E2D83 /* LaunchScreen.storyboard */; };
+		F63A4A471DFB54BE0090D25D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A461DFB54BE0090D25D /* MapViewController.swift */; };
+		F63A4A4A1DFB555F0090D25D /* MkMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A491DFB555F0090D25D /* MkMapViewDelegate.swift */; };
+		F63A4A4D1DFB55880090D25D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63A4A4C1DFB55880090D25D /* CoreLocation.framework */; };
+		F63A4A4F1DFB55910090D25D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63A4A4E1DFB55910090D25D /* MapKit.framework */; };
+		F63A4A511DFB5A820090D25D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A501DFB5A820090D25D /* Task.swift */; };
+		F63A4A531DFB5A940090D25D /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A521DFB5A940090D25D /* Tasks.swift */; };
 		F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */; };
 		F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */; };
 		F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */; };
 		F6B759341DFA8B9A00D2473C /* tiger-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B759331DFA8B9A00D2473C /* tiger-marker.png */; };
+		F6B759361DFB31B900D2473C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B759351DFB31B900D2473C /* Login.storyboard */; };
+		F6B759381DFB38AF00D2473C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B759371DFB38AF00D2473C /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +36,18 @@
 		3F9194C21DF794F2009E2D83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F9194C51DF794F4009E2D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F9194C71DF794F7009E2D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F63A4A461DFB54BE0090D25D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
+		F63A4A491DFB555F0090D25D /* MkMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MkMapViewDelegate.swift; sourceTree = "<group>"; };
+		F63A4A4C1DFB55880090D25D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F63A4A4E1DFB55910090D25D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F63A4A501DFB5A820090D25D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Model/Task.swift; sourceTree = "<group>"; };
+		F63A4A521DFB5A940090D25D /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tasks.swift; path = Model/Tasks.swift; sourceTree = "<group>"; };
 		F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Controller/UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controller/SignUpViewController.swift; sourceTree = "<group>"; };
 		F6B759331DFA8B9A00D2473C /* tiger-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tiger-marker.png"; path = "View/icons/tiger-marker.png"; sourceTree = "<group>"; };
+		F6B759351DFB31B900D2473C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = View/Login.storyboard; sourceTree = "<group>"; };
+		F6B759371DFB38AF00D2473C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F63A4A4F1DFB55910090D25D /* MapKit.framework in Frameworks */,
+				F63A4A4D1DFB55880090D25D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +68,7 @@
 			children = (
 				3F9194B81DF794E4009E2D83 /* Tiger Hunt */,
 				3F9194B71DF794E4009E2D83 /* Products */,
+				F63A4A4B1DFB55880090D25D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,12 +91,31 @@
 			path = "Tiger Hunt";
 			sourceTree = "<group>";
 		};
+		F63A4A481DFB54C30090D25D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F63A4A461DFB54BE0090D25D /* MapViewController.swift */,
+				F63A4A491DFB555F0090D25D /* MkMapViewDelegate.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		F63A4A4B1DFB55880090D25D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F63A4A4E1DFB55910090D25D /* MapKit.framework */,
+				F63A4A4C1DFB55880090D25D /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6B759251DFA78A700D2473C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				F6B759291DFA7DB000D2473C /* Login */,
-				3F9194BB1DF794E6009E2D83 /* FirstViewController.swift */,
+				F63A4A481DFB54C30090D25D /* Map */,
 				3F9194BD1DF794E7009E2D83 /* SecondViewController.swift */,
+				3F9194BB1DF794E6009E2D83 /* FirstViewController.swift */,
 				F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */,
 			);
 			name = ViewController;
@@ -88,6 +126,7 @@
 			children = (
 				F6B759301DFA8B0500D2473C /* icons */,
 				3F9194BF1DF794E8009E2D83 /* Main.storyboard */,
+				F6B759351DFB31B900D2473C /* Login.storyboard */,
 				3F9194C21DF794F2009E2D83 /* Assets.xcassets */,
 				3F9194C41DF794F4009E2D83 /* LaunchScreen.storyboard */,
 			);
@@ -98,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				F6B759281DFA791500D2473C /* data */,
+				F6B759371DFB38AF00D2473C /* User.swift */,
+				F63A4A501DFB5A820090D25D /* Task.swift */,
+				F63A4A521DFB5A940090D25D /* Tasks.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -189,6 +231,7 @@
 				3F9194C61DF794F4009E2D83 /* LaunchScreen.storyboard in Resources */,
 				F6B759341DFA8B9A00D2473C /* tiger-marker.png in Resources */,
 				3F9194C31DF794F2009E2D83 /* Assets.xcassets in Resources */,
+				F6B759361DFB31B900D2473C /* Login.storyboard in Resources */,
 				3F9194C11DF794E8009E2D83 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,10 +245,15 @@
 			files = (
 				F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */,
 				F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */,
+				F63A4A511DFB5A820090D25D /* Task.swift in Sources */,
 				3F9194BE1DF794E7009E2D83 /* SecondViewController.swift in Sources */,
 				F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */,
 				3F9194BA1DF794E6009E2D83 /* AppDelegate.swift in Sources */,
+				F63A4A531DFB5A940090D25D /* Tasks.swift in Sources */,
+				F63A4A4A1DFB555F0090D25D /* MkMapViewDelegate.swift in Sources */,
 				3F9194BC1DF794E6009E2D83 /* FirstViewController.swift in Sources */,
+				F6B759381DFB38AF00D2473C /* User.swift in Sources */,
+				F63A4A471DFB54BE0090D25D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,4 +30,14 @@ extension UIViewController {
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
     }
+    
+    func loginAlert(title: String,  msg: String, textField: UITextField ) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler:
+            { action in textField.text = "" }
+        )
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 }

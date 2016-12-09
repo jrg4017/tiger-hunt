@@ -12,10 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var loginSession: String = ""
+    var user: User?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+  
+        //if the user isn't logged in set the rootcontroller the Login storyboard
+        if !isUserLoggedIn() {
+            self.window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+        }
+        
         return true
     }
 
@@ -41,6 +47,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func isUserLoggedIn() -> Bool {
+        //let preferences = UserDefaults.standard
+        //if preferences.object(forKey: "session") != nil {
+            //loginSession = preferences.object(forKey: "session") as! String
+            //check_session()
+            //return true
+        //}
+            let userData = UserDefaults.standard.object(forKey: "user") as? Data
+            
+            if let userData = userData {
+                user = (NSKeyedUnarchiver.unarchiveObject(with: userData) as? User)!
+                return true
+            }
+        
+        return false
+    }
+    
+    //TODO: grab user info 
+    
 }
 

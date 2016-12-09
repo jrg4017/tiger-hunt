@@ -13,51 +13,47 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var user: User?
     
     // MARK: Constants
     let LOGIN_ERROR_TITLE: String = "Log In Error"
     let LOGIN_ERROR_MSG: String = "Your username or password is inccorect. Please try again"
     
-    var loginSession: String = ""
-    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        checkLoginStatus()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         customBottomBorder(self.usernameTextField!, color: "gray")
         customBottomBorder(self.passwordTextField!, color: "gray")
     }
     
     // MARK: - IBAction
     @IBAction func loginUser(_ sender: UIButton) {
-        loginAlert()
+        if self.usernameTextField.text == "" || passwordTextField.text == "" {
+            loginAlert(title: LOGIN_ERROR_TITLE, msg: LOGIN_ERROR_MSG, textField: self.passwordTextField! )
+        } else {
+            // TODO:  implement get user info here
+            user = User(name: "Julie Gabler", email: "jrgabler@gmail.com", username: usernameTextField.text!)
+            print(user)
+            writeSession()
+            switchRootController()
+        }
     }
     
-    func loginAlert() {
-        let alert = UIAlertController(title: LOGIN_ERROR_TITLE, message: LOGIN_ERROR_MSG, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { action in self.passwordTextField.text = ""})
+    func writeSession() {
+        let userData = NSKeyedArchiver.archivedData(withRootObject: user!)
         
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+        let defaults = UserDefaults.standard
+        defaults.set(userData, forKey: "user")
+        defaults.synchronize()
     }
-    
-    func checkLoginStatus() {
-        let preferences = UserDefaults.standard
-        if preferences.object(forKey: "session") != nil {
-            loginSession = preferences.object(forKey: "session") as! String
-            //check_session()
-           // navigationController?.popViewController(animated: true)
-            //navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
-        }
-        else {
-            //LoginToDo()
-        }
 
+    func switchRootController() {
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        appDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarControllerID")
+        appDelegate.window?.makeKeyAndVisible()
     }
-    
 }
