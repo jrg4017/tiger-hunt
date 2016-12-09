@@ -22,10 +22,10 @@ class SignUpViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        customBottomBorder(self.nameTextField!)
-        customBottomBorder(self.emailTextField!)
-        customBottomBorder(self.usernameTextField!)
-        customBottomBorder(self.passwordTextField!)
-        customBottomBorder(self.confirmPassTextField!)
+        customBottomBorder(self.nameTextField!, color: "gray")
+        customBottomBorder(self.emailTextField!, color: "gray")
+        customBottomBorder(self.usernameTextField!, color: "gray")
+        customBottomBorder(self.passwordTextField!, color: "gray")
+        customBottomBorder(self.confirmPassTextField!, color: "gray")
     }
 }
