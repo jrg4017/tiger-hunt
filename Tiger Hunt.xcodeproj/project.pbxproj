@@ -13,6 +13,10 @@
 		3F9194C11DF794E8009E2D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194BF1DF794E8009E2D83 /* Main.storyboard */; };
 		3F9194C31DF794F2009E2D83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C21DF794F2009E2D83 /* Assets.xcassets */; };
 		3F9194C61DF794F4009E2D83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C41DF794F4009E2D83 /* LaunchScreen.storyboard */; };
+		F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */; };
+		F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */; };
+		F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */; };
+		F6B759341DFA8B9A00D2473C /* tiger-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B759331DFA8B9A00D2473C /* tiger-marker.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		3F9194C21DF794F2009E2D83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F9194C51DF794F4009E2D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F9194C71DF794F7009E2D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
+		F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Controller/UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controller/SignUpViewController.swift; sourceTree = "<group>"; };
+		F6B759331DFA8B9A00D2473C /* tiger-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tiger-marker.png"; path = "View/icons/tiger-marker.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +65,66 @@
 			isa = PBXGroup;
 			children = (
 				3F9194B91DF794E6009E2D83 /* AppDelegate.swift */,
+				F6B759271DFA790100D2473C /* Model */,
+				F6B759251DFA78A700D2473C /* ViewController */,
+				F6B759261DFA78D900D2473C /* view */,
+			);
+			path = "Tiger Hunt";
+			sourceTree = "<group>";
+		};
+		F6B759251DFA78A700D2473C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F6B759291DFA7DB000D2473C /* Login */,
 				3F9194BB1DF794E6009E2D83 /* FirstViewController.swift */,
 				3F9194BD1DF794E7009E2D83 /* SecondViewController.swift */,
+				F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		F6B759261DFA78D900D2473C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F6B759301DFA8B0500D2473C /* icons */,
 				3F9194BF1DF794E8009E2D83 /* Main.storyboard */,
 				3F9194C21DF794F2009E2D83 /* Assets.xcassets */,
 				3F9194C41DF794F4009E2D83 /* LaunchScreen.storyboard */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		F6B759271DFA790100D2473C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6B759281DFA791500D2473C /* data */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F6B759281DFA791500D2473C /* data */ = {
+			isa = PBXGroup;
+			children = (
 				3F9194C71DF794F7009E2D83 /* Info.plist */,
 			);
-			path = "Tiger Hunt";
+			name = data;
+			sourceTree = "<group>";
+		};
+		F6B759291DFA7DB000D2473C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */,
+				F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		F6B759301DFA8B0500D2473C /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				F6B759331DFA8B9A00D2473C /* tiger-marker.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F9194C61DF794F4009E2D83 /* LaunchScreen.storyboard in Resources */,
+				F6B759341DFA8B9A00D2473C /* tiger-marker.png in Resources */,
 				3F9194C31DF794F2009E2D83 /* Assets.xcassets in Resources */,
 				3F9194C11DF794E8009E2D83 /* Main.storyboard in Resources */,
 			);
@@ -139,7 +200,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */,
+				F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */,
 				3F9194BE1DF794E7009E2D83 /* SecondViewController.swift in Sources */,
+				F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */,
 				3F9194BA1DF794E6009E2D83 /* AppDelegate.swift in Sources */,
 				3F9194BC1DF794E6009E2D83 /* FirstViewController.swift in Sources */,
 			);
@@ -301,6 +365,7 @@
 				3F9194CC1DF794F7009E2D83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
