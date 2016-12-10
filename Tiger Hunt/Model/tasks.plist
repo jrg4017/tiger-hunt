@@ -17,18 +17,6 @@
 			<string>Towering above the surrounding buildings, this statue is often mistaken for scrap metal. It is said if you view the statue from the right angle, it looks like a knight riding towards the school. The Sentiel is also rumored to be RIT&apos;s weather machine</string>
 			<key>isActivity</key>
 			<string>0</string>
-		</dict>
-		<dict>
-			<key>taskName</key>
-			<string>WITR FM</string>
-			<key>latitude</key>
-			<string>43.084261</string>
-			<key>longitude</key>
-			<string>-77.674646</string>
-			<key>hint</key>
-			<string>Inside the Student Alumni Union, you can discover a dj broadcasting good tunes while snacking on ice cream or slurping on some soup.</string>
-			<key>isActivity</key>
-			<string>0</string>
 			<key>points</key>
 			<string>20</string>
 		</dict>
@@ -59,6 +47,68 @@
 			<string>0</string>
 			<key>points</key>
 			<string>20</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>WITR FM</string>
+			<key>latitude</key>
+			<string>43.084261</string>
+			<key>longitude</key>
+			<string>-77.674646</string>
+			<key>hint</key>
+			<string>Inside the Student Alumni Union, you can discover a dj broadcasting good tunes while snacking on ice cream or slurping on some soup.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>The Wallace Center</string>
+			<key>latitude</key>
+			<string>43.083922</string>
+			<key>longitude</key>
+			<string>-77.676333</string>
+			<key>hint</key>
+			<string>Located in the center of campus, this building is the Tiger&apos;s hunting ground for books and often a study spot. This place is open 24 hours  a day, four times a week. </string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>Snap a photo with the record wall</string>
+			<key>hint</key>
+			<string>Located in one of RIT&apos;s major coffee spots, the aptly decorated wall features records from the past. You can find the hip coffee spot among the books.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>30</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>Snag &amp; snap a comfoty coffee couch </string>
+			<key>hint</key>
+			<string>The coveted couches in a hip coffee spot are hard to get during it&apos;s busiest hours. It&apos;s not an uncommon to see students catch a snooze between classes here.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>30</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>Zen Garden</string>
+			<key>latitude</key>
+			<string>43.084717</string>
+			<key>longitude</key>
+			<string>-77.675948</string>
+			<key>hint</key>
+			<string>Hidden in Kodak Quad, this small garden is a place to relax by a koi pond and a mini waterfall.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>40</string>
 		</dict>
 	</array>
 </dict>

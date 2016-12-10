@@ -14,12 +14,14 @@ import CoreLocation
  * main controller for anything relating the app's mapview
  * extensions: MkMapViewDelegate, CLLocationManagerDelegate, UIPickerDelegate
  */
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController {
     
     // MARK: - constants
-    let ZOOMED_OUT_DELTA : Double = 60.0
-    let ZOOMED_IN_DELTA : Double = 0.75
+    let ZOOMED_OUT_DELTA : Double = 0.025
+    let ZOOMED_IN_DELTA : Double = 0.001
     let MAP_VIEW_INDEX: Int = 0
+    let RIT_LATTITUDE: CLLocationDegrees = CLLocationDegrees(43.083895)
+    let RIT_LONGITUDE: CLLocationDegrees = CLLocationDegrees(-77.676320)
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -55,6 +57,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         loadAnnotations()
         mapView.delegate = self
         mapView.showsUserLocation = true
+        zoomRegion(RIT_LATTITUDE, RIT_LONGITUDE, ZOOMED_OUT_DELTA)
     }
     
     // MARK: - helper functions
