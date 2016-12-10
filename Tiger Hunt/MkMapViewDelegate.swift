@@ -41,65 +41,31 @@ extension MapViewController: MKMapViewDelegate {
     
     //called for each annotation to create a pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // Better to make this class property
-        let annotationIdentifier = "AnnotationIdentifier"
+        // return nil to draw default blue dot
+        if annotation is MKUserLocation {
+            return nil
+        }
         
+        let annotationIdentifier = "AnnotationIdentifier"
         var annotationView: MKAnnotationView?
+        
         if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
             annotationView = dequeuedAnnotationView
             annotationView?.annotation = annotation
-        }
-        else {
+        } else {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         
+        //set custom view
+        // TODO: set active and non active marker
         if let annotationView = annotationView {
-            // Configure your annotation view here
             annotationView.canShowCallout = true
             annotationView.image = UIImage(named: "tiger-marker-active")
         }
         
         return annotationView
     }
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        
-//        var view:MKPinAnnotationView
-//        let identifier = "Pin"
-//        
-//        if annotation is MKUserLocation {
-//            // Return nil so it will draw the default view -- i.e. blue dot
-//            return nil
-//        } // end of annotation is
-//        
-//        if annotation !== mapView.userLocation {
-//            
-//            // look for an existing view to use
-//            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
-//                dequeuedView.annotation = annotation
-//                view = dequeuedView
-//                
-//            } else {
-//                
-//                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//                view.pinTintColor = MKPinAnnotationView.redPinColor()
-//                view.animatesDrop = true
-//                view.canShowCallout = true
-//                view.calloutOffset = CGPoint(x: -5, y: -5)
-//                let leftButton = UIButton(type: .infoLight)
-//                
-//                let rightButton = UIButton(type: .detailDisclosure)
-//                rightButton.setImage(UIImage(named: "navigate.png"), for: .normal)
-//                
-//                leftButton.tag = 0
-//                rightButton.tag = 1
-//                view.leftCalloutAccessoryView = leftButton
-//                view.rightCalloutAccessoryView = rightButton
-//            }
-//            return view
-//        }
-//        return nil
-//    }
     
     // MARK: - helper functions for MKMapViewDelegate
     //gets directions by going maps navigation

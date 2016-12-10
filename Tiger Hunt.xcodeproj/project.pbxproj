@@ -27,6 +27,7 @@
 		F6B759341DFA8B9A00D2473C /* tiger-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B759331DFA8B9A00D2473C /* tiger-marker.png */; };
 		F6B759361DFB31B900D2473C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B759351DFB31B900D2473C /* Login.storyboard */; };
 		F6B759381DFB38AF00D2473C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B759371DFB38AF00D2473C /* User.swift */; };
+		F6F91C521DFBD45E00FB8F3A /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F91C511DFBD45E00FB8F3A /* TasksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		F6B759331DFA8B9A00D2473C /* tiger-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tiger-marker.png"; path = "View/icons/tiger-marker.png"; sourceTree = "<group>"; };
 		F6B759351DFB31B900D2473C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = View/Login.storyboard; sourceTree = "<group>"; };
 		F6B759371DFB38AF00D2473C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		F6F91C511DFBD45E00FB8F3A /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TasksViewController.swift; path = Controller/TasksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +121,9 @@
 			children = (
 				F6B759291DFA7DB000D2473C /* Login */,
 				F63A4A481DFB54C30090D25D /* Map */,
-				3F9194BD1DF794E7009E2D83 /* SecondViewController.swift */,
+				F6F91C4F1DFBD41B00FB8F3A /* TaaskList */,
 				3F9194BB1DF794E6009E2D83 /* FirstViewController.swift */,
+				3F9194BD1DF794E7009E2D83 /* SecondViewController.swift */,
 				F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */,
 			);
 			name = ViewController;
@@ -173,6 +176,14 @@
 				F6B759331DFA8B9A00D2473C /* tiger-marker.png */,
 			);
 			name = icons;
+			sourceTree = "<group>";
+		};
+		F6F91C4F1DFBD41B00FB8F3A /* TaaskList */ = {
+			isa = PBXGroup;
+			children = (
+				F6F91C511DFBD45E00FB8F3A /* TasksViewController.swift */,
+			);
+			name = TaaskList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 				F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */,
 				F63A4A511DFB5A820090D25D /* Task.swift in Sources */,
 				3F9194BE1DF794E7009E2D83 /* SecondViewController.swift in Sources */,
+				F6F91C521DFBD45E00FB8F3A /* TasksViewController.swift in Sources */,
 				F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */,
 				3F9194BA1DF794E6009E2D83 /* AppDelegate.swift in Sources */,
 				F63A4A531DFB5A940090D25D /* Tasks.swift in Sources */,

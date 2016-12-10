@@ -84,12 +84,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setViewControllerTaskLists() {
-        let tabBarController = self.window?.rootViewController as! UITabBarController
-        let mapVC = tabBarController.viewControllers?[0] as! MapViewController
+        let tabBarController = self.window?.rootViewController as? UITabBarController
+        let mapVC = tabBarController!.viewControllers![0] as! MapViewController
+        
+        let navVC = tabBarController!.viewControllers![1] as! UINavigationController
+        let taskVC = navVC.viewControllers[0] as! TaskViewController
         
         let taskList = Tasks()
         taskList.taskList = tasks
         mapVC.taskList = taskList
+        taskVC.taskList = taskList
     }
 
     func isUserLoggedIn() -> Bool {
