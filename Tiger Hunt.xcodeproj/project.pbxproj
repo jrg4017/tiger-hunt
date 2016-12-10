@@ -19,6 +19,7 @@
 		F63A4A4F1DFB55910090D25D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63A4A4E1DFB55910090D25D /* MapKit.framework */; };
 		F63A4A511DFB5A820090D25D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A501DFB5A820090D25D /* Task.swift */; };
 		F63A4A531DFB5A940090D25D /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A521DFB5A940090D25D /* Tasks.swift */; };
+		F63A4A591DFB6E8E0090D25D /* tasks.plist in Resources */ = {isa = PBXBuildFile; fileRef = F63A4A581DFB6E8E0090D25D /* tasks.plist */; };
 		F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */; };
 		F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */; };
 		F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */; };
@@ -42,6 +43,7 @@
 		F63A4A4E1DFB55910090D25D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F63A4A501DFB5A820090D25D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Model/Task.swift; sourceTree = "<group>"; };
 		F63A4A521DFB5A940090D25D /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tasks.swift; path = Model/Tasks.swift; sourceTree = "<group>"; };
+		F63A4A581DFB6E8E0090D25D /* tasks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tasks.plist; path = Model/tasks.plist; sourceTree = "<group>"; };
 		F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Controller/UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controller/SignUpViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				3F9194C71DF794F7009E2D83 /* Info.plist */,
+				F63A4A581DFB6E8E0090D25D /* tasks.plist */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				3F9194C31DF794F2009E2D83 /* Assets.xcassets in Resources */,
 				F6B759361DFB31B900D2473C /* Login.storyboard in Resources */,
 				3F9194C11DF794E8009E2D83 /* Main.storyboard in Resources */,
+				F63A4A591DFB6E8E0090D25D /* tasks.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,13 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var loginSession: String = ""
     var user: User?
+    var tasks: [Task] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
   
+        //load in the user and task data
+        loadTasks()
+        setViewControllerTaskLists()
+        
         //if the user isn't logged in set the rootcontroller the Login storyboard
         if !isUserLoggedIn() {
             self.window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
         }
+        
         
         return true
     }
@@ -45,6 +52,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func loadTasks() {
+        if let path = Bundle.main.path(forResource: "tasks", ofType: "plist") {
+            let tempDict = NSDictionary(contentsOfFile: path)
+            let tempArray = (tempDict?.value(forKey: "tasks") as! NSArray) as Array
+            
+            for dict in tempArray {
+                var t: Task = Task()
+                
+                let taskName = dict["taskName"]! as! String
+                let points = (dict["points"]! as! NSString).integerValue
+                let hint = dict["hint"]! as! String
+                let isActivity = (dict["isActivity"]! as! NSString).boolValue
+                
+                //if it is not an activity, it's an mkannotation/pin
+                if !isActivity {
+                    let latitude = (dict["latitude"]! as! NSString).doubleValue
+                    let longitude = (dict["longitude"]! as! NSString).doubleValue
+                    let location = CLLocation(latitude: latitude, longitude: longitude)
+                
+                    t = Task(taskName: taskName, points: points, hint: hint, location: location)
+                } else {
+                    t = Task(taskName: taskName, points: points, hint: hint)
+                }
+                
+                tasks.append(t)
+            }
+        }
+    }
+    
+    func setViewControllerTaskLists() {
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+        let mapVC = tabBarController.viewControllers?[0] as! MapViewController
+        
+        let taskList = Tasks()
+        taskList.taskList = tasks
+        mapVC.taskList = taskList
     }
 
     func isUserLoggedIn() -> Bool {

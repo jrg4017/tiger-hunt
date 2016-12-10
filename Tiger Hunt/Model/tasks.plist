@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>lastModified</key>
+	<date>2016-12-09T22:58:36Z</date>
+	<key>tasks</key>
+	<array>
+		<dict>
+			<key>taskName</key>
+			<string>The Sentinel</string>
+			<key>latitude</key>
+			<string>43.084710</string>
+			<key>longitude</key>
+			<string>-77.674351</string>
+			<key>hint</key>
+			<string>Towering above the surrounding buildings, this statue is often mistaken for scrap metal. It is said if you view the statue from the right angle, it looks like a knight riding towards the school. The Sentiel is also rumored to be RIT&apos;s weather machine</string>
+			<key>isActivity</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>WITR FM</string>
+			<key>latitude</key>
+			<string>43.084261</string>
+			<key>longitude</key>
+			<string>-77.674646</string>
+			<key>hint</key>
+			<string>Inside the Student Alumni Union, you can discover a dj broadcasting good tunes while snacking on ice cream or slurping on some soup.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>Schmitt Interfaith Center</string>
+			<key>latitude</key>
+			<string>43.084100</string>
+			<key>longitude</key>
+			<string>-77.673452</string>
+			<key>hint</key>
+			<string>Where people of all faiths come to congreate between a place to sweat and a place to score some free gum. This place is also the home of the RIT bells.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>Campus Center</string>
+			<key>latitude</key>
+			<string>43.084214</string>
+			<key>longitude</key>
+			<string>-77.673876</string>
+			<key>hint</key>
+			<string>When lost or have questions, this is the central place to find some help. You can also find the old swimming hall bleachers here as a fountain and a dozen organization offices. </string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+		</dict>
+	</array>
+</dict>
+</plist>
