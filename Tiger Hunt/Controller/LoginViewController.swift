@@ -36,9 +36,9 @@ class LoginViewController: UIViewController {
             self.loginAlert(title: self.LOGIN_ERROR_TITLE, msg: self.LOGIN_ERROR_MSG, textField: self.passwordTextField! )
         } else {
             // TODO:  implement get user info here
-            self.user = User(name: "Julie Gabler", email: "jrgabler@gmail.com", username: self.usernameTextField.text!)
+            self.user = User(name: "Julie Gabler", email: "jrgabler@gmail.com", username: self.usernameTextField.text!, totalPoints: 10)
             self.writeSession()
-            self.switchRootController()
+            self.switchRootController(storyboardName: "Main")
         }
     }
     
@@ -48,11 +48,5 @@ class LoginViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(userData, forKey: "user")
         defaults.synchronize()
-    }
-
-    func switchRootController() {
-        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
-        appDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarControllerID")
-        appDelegate.window?.makeKeyAndVisible()
     }
 }

@@ -2,12 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;Tiger Hunt&quot; would like to access your photos</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.adventure-games</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Tiger Hunt app</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Click allow to use the app correctly.</string>
+	<string>&quot;tiger Hunt&quot; tracks your location in realtion to tasks</string>
 	<key>NSLocationAlwaysUsuageDescription</key>
 	<string>Allow &quot;Tiger Hunt&quot; to access your location even when you are not using the app?</string>
 	<key>NSLocationWhenInUseUsuageDescription</key>

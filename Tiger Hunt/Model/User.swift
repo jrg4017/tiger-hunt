@@ -13,31 +13,34 @@ class User: NSObject, NSCoding {
     private var name: String = ""
     private var email: String = ""
     private var username: String = ""
-//    var dateJoined: Date
+    //private var totalPoints: Int = 0
+    //private var dateJoined: Date
     
     override var description: String {
         return "{\n\tusername: \(self.username)\n\tname:\(self.name)\n\temail: \(self.email)\n}"
     }
     
     // MARK: - Initalizers
-    init(name: String, email: String, username: String) {
+    init(name: String, email: String, username: String, totalPoints: Int) {
         self.name = name
         self.email = email
         self.username = username
-       // self.dateJoined = Date()
+       // self.totalPoints = totalPoints
+        //self.dateJoined = Date()
     }
     
-    init(name: String, email: String, username: String, date: Date) {
+    init(name: String, email: String, username: String, totalPoints: Int, date: Date) {
         self.name = name
         self.email = email
         self.username = username
+        //self.totalPoints = totalPoints
         //self.dateJoined = date
         
         super.init()
     }
     
     override convenience init() {
-        self.init(name: "Unknown", email: "unknown@tigerhunt.com", username: "unknown")
+        self.init(name: "Unknown", email: "unknown@tigerhunt.com", username: "unknown", totalPoints: 0)
     }
     
     // MARK: NSCoding Initializers
@@ -45,13 +48,18 @@ class User: NSObject, NSCoding {
         self.username = aDecoder.decodeObject(forKey: "username") as! String
         self.name  = aDecoder.decodeObject(forKey: "name") as! String
         self.email = aDecoder.decodeObject(forKey: "email") as! String
-        //self.dateJoined = aDecoder.decodeObject(forKey: "dateJoined") as! Date
+       // self.totalPoints = Int((aDecoder.decodeObject(forKey: "totalPoints") as! NSString).intValue)
+        
+        //self.dateJoined = (aDecoder.decodeObject(forKey: "dateJoined") as! NSString) as Date
+        
+        super.init()
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.username, forKey: "username")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.email, forKey: "email")
+        //aCoder.encode(self.totalPoints, forKey: "totalPoints")
         //aCoder.encode(self.dateJoined, forKey: "dateJoined")
     }
     
@@ -62,4 +70,7 @@ class User: NSObject, NSCoding {
     func getUsername() -> String { return self.username }
     func setEmail(_ email: String) { self.email = email }
     func getEmail() -> String { return self.email }
+    //func getDateJoined() -> Date { return self.dateJoined }
+//    func setTotalPoints(_ totalPoints: Int) { self.totalPoints = totalPoints }
+//    func getTotalPoints() -> Int { return self.totalPoints }
 }

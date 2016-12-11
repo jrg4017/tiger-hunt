@@ -12,6 +12,7 @@
 		3F9194C31DF794F2009E2D83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C21DF794F2009E2D83 /* Assets.xcassets */; };
 		3F9194C61DF794F4009E2D83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C41DF794F4009E2D83 /* LaunchScreen.storyboard */; };
 		F611FFA61DFCD58F005EF388 /* not-submitted.png in Resources */ = {isa = PBXBuildFile; fileRef = F611FFA51DFCD58F005EF388 /* not-submitted.png */; };
+		F625780E1DFD3BDE00B79ABA /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F625780D1DFD3BDE00B79ABA /* ProfileController.swift */; };
 		F63A4A471DFB54BE0090D25D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A461DFB54BE0090D25D /* MapViewController.swift */; };
 		F63A4A4A1DFB555F0090D25D /* MkMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A491DFB555F0090D25D /* MkMapViewDelegate.swift */; };
 		F63A4A4D1DFB55880090D25D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63A4A4C1DFB55880090D25D /* CoreLocation.framework */; };
@@ -20,6 +21,11 @@
 		F63A4A531DFB5A940090D25D /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A521DFB5A940090D25D /* Tasks.swift */; };
 		F63A4A591DFB6E8E0090D25D /* tasks.plist in Resources */ = {isa = PBXBuildFile; fileRef = F63A4A581DFB6E8E0090D25D /* tasks.plist */; };
 		F63A4A5B1DFBC0DB0090D25D /* CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A4A5A1DFBC0DB0090D25D /* CLLocationManagerDelegate.swift */; };
+		F6587AC11DFD45FA00579981 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AC01DFD45FA00579981 /* ImageViewExtension.swift */; };
+		F6587AC41DFD4E9800579981 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AC31DFD4E9800579981 /* LeaderboardViewController.swift */; };
+		F6587AC61DFD4F4C00579981 /* CustomLeaderboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AC51DFD4F4C00579981 /* CustomLeaderboardCell.swift */; };
+		F6587AC81DFD50B200579981 /* TaskDetailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AC71DFD50B200579981 /* TaskDetailExtension.swift */; };
+		F6587ACA1DFD563100579981 /* ProfileVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AC91DFD563100579981 /* ProfileVCExtension.swift */; };
 		F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */; };
 		F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */; };
 		F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */; };
@@ -40,6 +46,7 @@
 		3F9194C51DF794F4009E2D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F9194C71DF794F7009E2D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F611FFA51DFCD58F005EF388 /* not-submitted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "not-submitted.png"; path = "View/icons/not-submitted.png"; sourceTree = "<group>"; };
+		F625780D1DFD3BDE00B79ABA /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileController.swift; path = Controller/ProfileController.swift; sourceTree = "<group>"; };
 		F63A4A461DFB54BE0090D25D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
 		F63A4A491DFB555F0090D25D /* MkMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MkMapViewDelegate.swift; sourceTree = "<group>"; };
 		F63A4A4C1DFB55880090D25D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -48,6 +55,11 @@
 		F63A4A521DFB5A940090D25D /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tasks.swift; path = Model/Tasks.swift; sourceTree = "<group>"; };
 		F63A4A581DFB6E8E0090D25D /* tasks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tasks.plist; path = Model/tasks.plist; sourceTree = "<group>"; };
 		F63A4A5A1DFBC0DB0090D25D /* CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLLocationManagerDelegate.swift; path = Controller/CLLocationManagerDelegate.swift; sourceTree = "<group>"; };
+		F6587AC01DFD45FA00579981 /* ImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewExtension.swift; path = View/ImageViewExtension.swift; sourceTree = "<group>"; };
+		F6587AC31DFD4E9800579981 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		F6587AC51DFD4F4C00579981 /* CustomLeaderboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLeaderboardCell.swift; path = View/CustomLeaderboardCell.swift; sourceTree = "<group>"; };
+		F6587AC71DFD50B200579981 /* TaskDetailExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailExtension.swift; sourceTree = "<group>"; };
+		F6587AC91DFD563100579981 /* ProfileVCExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileVCExtension.swift; path = Controller/ProfileVCExtension.swift; sourceTree = "<group>"; };
 		F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Controller/UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controller/SignUpViewController.swift; sourceTree = "<group>"; };
@@ -105,8 +117,18 @@
 			isa = PBXGroup;
 			children = (
 				F6F91C551DFC6EA900FB8F3A /* CustomTableViewCell.swift */,
+				F6587AC51DFD4F4C00579981 /* CustomLeaderboardCell.swift */,
 			);
 			name = CustomViewCells;
+			sourceTree = "<group>";
+		};
+		F625780C1DFD3BBC00B79ABA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F625780D1DFD3BDE00B79ABA /* ProfileController.swift */,
+				F6587AC91DFD563100579981 /* ProfileVCExtension.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		F63A4A481DFB54C30090D25D /* Map */ = {
@@ -128,12 +150,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F6587AC21DFD4E7100579981 /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				F6587AC31DFD4E9800579981 /* LeaderboardViewController.swift */,
+			);
+			name = Leaderboard;
+			sourceTree = "<group>";
+		};
 		F6B759251DFA78A700D2473C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				F6B759291DFA7DB000D2473C /* Login */,
 				F63A4A481DFB54C30090D25D /* Map */,
 				F6F91C4F1DFBD41B00FB8F3A /* TaaskList */,
+				F6587AC21DFD4E7100579981 /* Leaderboard */,
+				F625780C1DFD3BBC00B79ABA /* Profile */,
 				F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */,
 			);
 			name = ViewController;
@@ -148,6 +180,7 @@
 				F6B759351DFB31B900D2473C /* Login.storyboard */,
 				3F9194C21DF794F2009E2D83 /* Assets.xcassets */,
 				3F9194C41DF794F4009E2D83 /* LaunchScreen.storyboard */,
+				F6587AC01DFD45FA00579981 /* ImageViewExtension.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -195,6 +228,7 @@
 			children = (
 				F6F91C511DFBD45E00FB8F3A /* TaskTableViewController.swift */,
 				F6F91C571DFC9F3500FB8F3A /* TaskDetailViewController.swift */,
+				F6587AC71DFD50B200579981 /* TaskDetailExtension.swift */,
 				F6F91C531DFC66D800FB8F3A /* TableViewExtension.swift */,
 			);
 			name = TaaskList;
@@ -278,17 +312,23 @@
 			files = (
 				F6F91C581DFC9F3500FB8F3A /* TaskDetailViewController.swift in Sources */,
 				F63A4A5B1DFBC0DB0090D25D /* CLLocationManagerDelegate.swift in Sources */,
+				F6587ACA1DFD563100579981 /* ProfileVCExtension.swift in Sources */,
 				F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */,
 				F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */,
 				F6F91C541DFC66D800FB8F3A /* TableViewExtension.swift in Sources */,
+				F625780E1DFD3BDE00B79ABA /* ProfileController.swift in Sources */,
 				F63A4A511DFB5A820090D25D /* Task.swift in Sources */,
 				F6F91C561DFC6EA900FB8F3A /* CustomTableViewCell.swift in Sources */,
+				F6587AC81DFD50B200579981 /* TaskDetailExtension.swift in Sources */,
 				F6F91C521DFBD45E00FB8F3A /* TaskTableViewController.swift in Sources */,
 				F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */,
+				F6587AC61DFD4F4C00579981 /* CustomLeaderboardCell.swift in Sources */,
 				3F9194BA1DF794E6009E2D83 /* AppDelegate.swift in Sources */,
+				F6587AC41DFD4E9800579981 /* LeaderboardViewController.swift in Sources */,
 				F63A4A531DFB5A940090D25D /* Tasks.swift in Sources */,
 				F63A4A4A1DFB555F0090D25D /* MkMapViewDelegate.swift in Sources */,
 				F6B759381DFB38AF00D2473C /* User.swift in Sources */,
+				F6587AC11DFD45FA00579981 /* ImageViewExtension.swift in Sources */,
 				F63A4A471DFB54BE0090D25D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

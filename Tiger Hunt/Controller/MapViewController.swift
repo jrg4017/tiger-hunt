@@ -53,6 +53,11 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if tasks.count == 0 {
+             let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            appDelegate.setViewControllerTaskLists()
+        }
+        
         self.loadLocation()
         self.loadAnnotations()
         self.mapView.delegate = self

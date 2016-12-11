@@ -20,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
   
         //load in the user and task data
-        loadTasks()
-        setViewControllerTaskLists()
+        self.loadTasks()
         
         //if the user isn't logged in set the rootcontroller the Login storyboard
         if !isUserLoggedIn() {
             self.window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+        } else {
+            self.setViewControllerTaskLists()
         }
-        
         
         return true
     }
@@ -91,6 +91,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navVC = tabBarController!.viewControllers![1] as! UINavigationController
         let taskVC = navVC.viewControllers[0] as! TaskTableViewController
         
+        let nav2VC = tabBarController!.viewControllers?[3] as! UINavigationController
+        let profileVC = nav2VC.viewControllers[0] as! ProfileViewController
+        profileVC.user = self.user
+        
         let taskList = Tasks()
         taskList.taskList = tasks
         mapVC.taskList = taskList
@@ -112,6 +116,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         
         return false
+    }
+    
+    func switchRootController() {
+        self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        
+        self.loadTasks()
+        self.setViewControllerTaskLists()
+        
+        self.window?.makeKeyAndVisible()
     }
     
     //TODO: grab user info 

@@ -58,7 +58,6 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.barTintColor = self.RIT_ORANGE
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +95,7 @@ class TaskTableViewController: UITableViewController {
         switch indexPath.section {
             case 0:
                 task = self.tasks[indexPath.row]
-                cell.titleLabel.text = task.getTaskName()
+                cell.titleLabel.text = (self.completedTasks.index(of: task) == nil) ? task.getTaskName() : task.getLocationName()
             case 1:
                 task = self.activities[indexPath.row]
                 cell.titleLabel.text = task.getTaskName()
@@ -111,24 +110,7 @@ class TaskTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        let task = (indexPath.section == 0) ? self.tasks[indexPath.row] : self.activities[indexPath.row]
-//        
-//        let detailVC = TaskDetailViewController(style: .grouped)
-//        detailVC.title =  task.getTaskName()
-//
-//        if (self.completedTasks.index(of: task) != nil) {
-//            detailVC.isComplete = true
-//            detailVC.title = task.getLocationName()
-//        }
-//        
-////        navigationController?.performSegue(withIdentifier: "TaskDetailViewID", sender: self)
-//        navigationController?.pushViewController(detailVC, animated: true)
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if segue.identifier == "TaskDetailViewID" ,
         let nextScene = segue.destination as? TaskDetailViewController
         let indexPath = self.tableView.indexPathForSelectedRow
         
@@ -136,7 +118,6 @@ class TaskTableViewController: UITableViewController {
         
         nextScene?.isComplete = (self.completedTasks.index(of: task) != nil) ? true : false
         nextScene?.task = task
-        //}
     }
     
     func loadTasksActivites(_ isCompletedTab: Bool) {

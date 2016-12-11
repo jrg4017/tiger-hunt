@@ -76,4 +76,10 @@ extension UIViewController {
         
         return completedTasks
     }
+    
+    func switchRootController(storyboardName: String) {
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        appDelegate.window?.rootViewController = UIStoryboard(name: storyboardName, bundle: nil).instantiateInitialViewController()
+        appDelegate.window?.makeKeyAndVisible()
+    }
 }

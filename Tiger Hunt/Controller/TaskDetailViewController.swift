@@ -13,6 +13,7 @@ class TaskDetailViewController: UIViewController {
     // MARK: - Properties
     var task: Task!
     var isComplete: Bool = false
+    let picker = UIImagePickerController()
 
     @IBOutlet weak var taskImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -21,12 +22,19 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var submitPhotoButton: UIButton!
     
     @IBAction func submitPhoto(_ sender: UIButton) {
-        //todo add photo functionality
+        self.picker.allowsEditing = false
+        self.picker.sourceType = .photoLibrary
+        self.picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(self.picker, animated: true, completion: { action in self.markComplete() })
+    }
+        
+    func markComplete() {
         self.insertCompletedTask(task: self.task)
         self.isComplete = true
-        sender.isHidden = true
-        //todo adjust layout when .removeSuperView() is called
+        self.submitPhotoButton.isHidden = true
+//          todo adjust layout when .removeSuperView() is called
     }
+        
     
     @IBAction func showOnMap(_ sender: UIButton) {
         let mapVC = tabBarController?.viewControllers?[0] as! MapViewController
@@ -36,6 +44,19 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setData()
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        self.picker.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = (self.isComplete) ? self.task.getLocationName() : self.task.getTaskName()
+    }
+    
+    func setData() {
         //allows the section to have variable heights, to adapt to content
         self.pointsLabel.text = "\(self.task.getPoints()) points"
         
@@ -46,13 +67,6 @@ class TaskDetailViewController: UIViewController {
         
         self.submitPhotoButton.isHidden = self.isComplete
         self.showOnMapButton.isHidden = self.task.isActivity()
-        
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = (self.isComplete) ? self.task.getLocationName() : self.task.getTaskName()
     }
     
 }
