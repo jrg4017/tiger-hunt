@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F9194BA1DF794E6009E2D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9194B91DF794E6009E2D83 /* AppDelegate.swift */; };
-		3F9194BC1DF794E6009E2D83 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9194BB1DF794E6009E2D83 /* FirstViewController.swift */; };
-		3F9194BE1DF794E7009E2D83 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9194BD1DF794E7009E2D83 /* SecondViewController.swift */; };
 		3F9194C11DF794E8009E2D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194BF1DF794E8009E2D83 /* Main.storyboard */; };
 		3F9194C31DF794F2009E2D83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C21DF794F2009E2D83 /* Assets.xcassets */; };
 		3F9194C61DF794F4009E2D83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9194C41DF794F4009E2D83 /* LaunchScreen.storyboard */; };
@@ -27,14 +25,15 @@
 		F6B759341DFA8B9A00D2473C /* tiger-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B759331DFA8B9A00D2473C /* tiger-marker.png */; };
 		F6B759361DFB31B900D2473C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B759351DFB31B900D2473C /* Login.storyboard */; };
 		F6B759381DFB38AF00D2473C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B759371DFB38AF00D2473C /* User.swift */; };
-		F6F91C521DFBD45E00FB8F3A /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F91C511DFBD45E00FB8F3A /* TasksViewController.swift */; };
+		F6F91C521DFBD45E00FB8F3A /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F91C511DFBD45E00FB8F3A /* TaskTableViewController.swift */; };
+		F6F91C541DFC66D800FB8F3A /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F91C531DFC66D800FB8F3A /* TableViewExtension.swift */; };
+		F6F91C561DFC6EA900FB8F3A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F91C551DFC6EA900FB8F3A /* CustomTableViewCell.swift */; };
+		F6F91C581DFC9F3500FB8F3A /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F91C571DFC9F3500FB8F3A /* TaskDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F9194B61DF794E4009E2D83 /* Tiger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tiger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9194B91DF794E6009E2D83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F9194BB1DF794E6009E2D83 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		3F9194BD1DF794E7009E2D83 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3F9194C01DF794E8009E2D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F9194C21DF794F2009E2D83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F9194C51DF794F4009E2D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,7 +52,10 @@
 		F6B759331DFA8B9A00D2473C /* tiger-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tiger-marker.png"; path = "View/icons/tiger-marker.png"; sourceTree = "<group>"; };
 		F6B759351DFB31B900D2473C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = View/Login.storyboard; sourceTree = "<group>"; };
 		F6B759371DFB38AF00D2473C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
-		F6F91C511DFBD45E00FB8F3A /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TasksViewController.swift; path = Controller/TasksViewController.swift; sourceTree = "<group>"; };
+		F6F91C511DFBD45E00FB8F3A /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskTableViewController.swift; path = Controller/TaskTableViewController.swift; sourceTree = "<group>"; };
+		F6F91C531DFC66D800FB8F3A /* TableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		F6F91C551DFC6EA900FB8F3A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewCell.swift; path = View/CustomTableViewCell.swift; sourceTree = "<group>"; };
+		F6F91C571DFC9F3500FB8F3A /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskDetailViewController.swift; path = Controller/TaskDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +124,6 @@
 				F6B759291DFA7DB000D2473C /* Login */,
 				F63A4A481DFB54C30090D25D /* Map */,
 				F6F91C4F1DFBD41B00FB8F3A /* TaaskList */,
-				3F9194BB1DF794E6009E2D83 /* FirstViewController.swift */,
-				3F9194BD1DF794E7009E2D83 /* SecondViewController.swift */,
 				F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */,
 			);
 			name = ViewController;
@@ -181,7 +181,10 @@
 		F6F91C4F1DFBD41B00FB8F3A /* TaaskList */ = {
 			isa = PBXGroup;
 			children = (
-				F6F91C511DFBD45E00FB8F3A /* TasksViewController.swift */,
+				F6F91C511DFBD45E00FB8F3A /* TaskTableViewController.swift */,
+				F6F91C571DFC9F3500FB8F3A /* TaskDetailViewController.swift */,
+				F6F91C531DFC66D800FB8F3A /* TableViewExtension.swift */,
+				F6F91C551DFC6EA900FB8F3A /* CustomTableViewCell.swift */,
 			);
 			name = TaaskList;
 			sourceTree = "<group>";
@@ -261,17 +264,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F91C581DFC9F3500FB8F3A /* TaskDetailViewController.swift in Sources */,
 				F63A4A5B1DFBC0DB0090D25D /* CLLocationManagerDelegate.swift in Sources */,
 				F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */,
 				F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */,
+				F6F91C541DFC66D800FB8F3A /* TableViewExtension.swift in Sources */,
 				F63A4A511DFB5A820090D25D /* Task.swift in Sources */,
-				3F9194BE1DF794E7009E2D83 /* SecondViewController.swift in Sources */,
-				F6F91C521DFBD45E00FB8F3A /* TasksViewController.swift in Sources */,
+				F6F91C561DFC6EA900FB8F3A /* CustomTableViewCell.swift in Sources */,
+				F6F91C521DFBD45E00FB8F3A /* TaskTableViewController.swift in Sources */,
 				F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */,
 				3F9194BA1DF794E6009E2D83 /* AppDelegate.swift in Sources */,
 				F63A4A531DFB5A940090D25D /* Tasks.swift in Sources */,
 				F63A4A4A1DFB555F0090D25D /* MkMapViewDelegate.swift in Sources */,
-				3F9194BC1DF794E6009E2D83 /* FirstViewController.swift in Sources */,
 				F6B759381DFB38AF00D2473C /* User.swift in Sources */,
 				F63A4A471DFB54BE0090D25D /* MapViewController.swift in Sources */,
 			);

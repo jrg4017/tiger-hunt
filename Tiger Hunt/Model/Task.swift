@@ -14,6 +14,7 @@ class Task: NSObject, NSCoding, MKAnnotation {
     
     // MARK: - Properties
     private var taskName: String = ""
+    private var locationName: String = ""
     private var points: Int = 0
     private var hint: String = ""
     private var location: CLLocation?
@@ -40,12 +41,13 @@ class Task: NSObject, NSCoding, MKAnnotation {
     
     // MARK: NSObject property override
     override var description : String {
-        return "{\n\ttaskName: \(self.taskName)\n\tpoints: \(self.points)\n\thint: \(self.hint)\n\tlocation: \(self.location!)\n\t isActivity: \(self.isActivityTask)\n}"
+        return "{\n\tlocationName: \(self.locationName)\n\tttaskName: \(self.taskName)\n\tpoints: \(self.points)\n\thint: \(self.hint)\n\tlocation: \(self.location!)\n\t isActivity: \(self.isActivityTask)\n}"
     }
     
     // MARK: - Initializers
-    init(taskName: String, points: Int, hint: String, location: CLLocation?) {
+    init(taskName: String, locationName: String, points: Int, hint: String, location: CLLocation?) {
         self.taskName = taskName
+        self.locationName = locationName
         self.points = points
         self.hint = hint
         self.location = location
@@ -53,8 +55,9 @@ class Task: NSObject, NSCoding, MKAnnotation {
         super.init()
     }
     
-    init(taskName: String, points: Int, hint: String) {
+    init(taskName: String, locationName: String, points: Int, hint: String) {
         self.taskName = taskName
+        self.locationName = locationName
         self.points = points
         self.hint = hint
         self.location = nil
@@ -64,11 +67,11 @@ class Task: NSObject, NSCoding, MKAnnotation {
     }
     
     override convenience init() {
-        self.init(taskName: "Unknown", points: 0, hint: "No idea where this is", location: nil)
+        self.init(taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is", location: nil)
     }
     
     convenience init(isActivity: Bool) {
-        self.init(taskName: "Unknown", points: 0, hint: "No idea where this is")
+        self.init(taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is")
     }
     
     // MARK: NSCoding intializers
@@ -83,6 +86,8 @@ class Task: NSObject, NSCoding, MKAnnotation {
     }
     
     // MARK: - Mutators and Accessors
+    func setLocationName(_ locationName: String) { self.locationName = locationName }
+    func getLocationName() -> String? { return self.locationName }
     func setTaskName(_ taskName: String) { self.taskName = taskName }
     func getTaskName() -> String { return self.taskName }
     func setPoints(_ points: Int) { self.points = points }

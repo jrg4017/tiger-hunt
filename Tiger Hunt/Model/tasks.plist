@@ -8,13 +8,15 @@
 	<array>
 		<dict>
 			<key>taskName</key>
+			<string>Large metal sculpture</string>
+			<key>locationName</key>
 			<string>The Sentinel</string>
 			<key>latitude</key>
 			<string>43.084710</string>
 			<key>longitude</key>
 			<string>-77.674351</string>
 			<key>hint</key>
-			<string>Towering above the surrounding buildings, this statue is often mistaken for scrap metal. It is said if you view the statue from the right angle, it looks like a knight riding towards the school. The Sentiel is also rumored to be RIT&apos;s weather machine</string>
+			<string>Towering above the surrounding buildings, this sculpture is often mistaken for scrap metal. It is said if you view the sculpture from the right angle, it looks like a knight riding towards the school. The sculpture is also rumored to be RIT&apos;s weather machine.</string>
 			<key>isActivity</key>
 			<string>0</string>
 			<key>points</key>
@@ -22,13 +24,15 @@
 		</dict>
 		<dict>
 			<key>taskName</key>
+			<string>Religous Center</string>
+			<key>locationName</key>
 			<string>Schmitt Interfaith Center</string>
 			<key>latitude</key>
 			<string>43.084100</string>
 			<key>longitude</key>
 			<string>-77.673452</string>
 			<key>hint</key>
-			<string>Where people of all faiths come to congreate between a place to sweat and a place to score some free gum. This place is also the home of the RIT bells.</string>
+			<string>Where people of all faiths come to congreate during the week between a place to sweat and a place to score some free gum. This place is also the home of the RIT bells.</string>
 			<key>isActivity</key>
 			<string>0</string>
 			<key>points</key>
@@ -36,13 +40,15 @@
 		</dict>
 		<dict>
 			<key>taskName</key>
+			<string>Free Gum Hotspot</string>
+			<key>locationName</key>
 			<string>Campus Center</string>
 			<key>latitude</key>
 			<string>43.084214</string>
 			<key>longitude</key>
 			<string>-77.673876</string>
 			<key>hint</key>
-			<string>When lost or have questions, this is the central place to find some help. You can also find the old swimming hall bleachers here as a fountain and a dozen organization offices. </string>
+			<string>When lost or have questions, this is the central place to find some help. You can also find the old swimming hall bleachers here as a fountain and a dozen organization offices.  You can find it in the building across from the Clark Gym</string>
 			<key>isActivity</key>
 			<string>0</string>
 			<key>points</key>
@@ -50,13 +56,15 @@
 		</dict>
 		<dict>
 			<key>taskName</key>
-			<string>WITR FM</string>
+			<string>RIT&apos;s Radio Station</string>
+			<key>locationName</key>
+			<string>WITR FM Desk</string>
 			<key>latitude</key>
 			<string>43.084261</string>
 			<key>longitude</key>
 			<string>-77.674646</string>
 			<key>hint</key>
-			<string>Inside the Student Alumni Union, you can discover a dj broadcasting good tunes while snacking on ice cream or slurping on some soup.</string>
+			<string>Inside the Student Alumni Union, you can discover Tiger DJs broadcasting indie tunes through a glass window while snacking on ice cream or on Nathan&apos;s.</string>
 			<key>isActivity</key>
 			<string>0</string>
 			<key>points</key>
@@ -64,13 +72,15 @@
 		</dict>
 		<dict>
 			<key>taskName</key>
+			<string>Home of the Tiger Library</string>
+			<key>locationName</key>
 			<string>The Wallace Center</string>
 			<key>latitude</key>
 			<string>43.083922</string>
 			<key>longitude</key>
 			<string>-77.676333</string>
 			<key>hint</key>
-			<string>Located in the center of campus, this building is the Tiger&apos;s hunting ground for books and often a study spot. This place is open 24 hours  a day, four times a week. </string>
+			<string>Located in the center of campus, this building is the Tiger&apos;s hunting ground for book rentals and compuers to use. Tigers also use this spot to study, nap, and print assignments. This place is open 24 hours  a day, four times a week. </string>
 			<key>isActivity</key>
 			<string>0</string>
 			<key>points</key>
@@ -78,7 +88,9 @@
 		</dict>
 		<dict>
 			<key>taskName</key>
-			<string>Snap a photo with the record wall</string>
+			<string>Find the Music Record Wall</string>
+			<key>locationName</key>
+			<string>Java Wally&apos;s Record Wall</string>
 			<key>hint</key>
 			<string>Located in one of RIT&apos;s major coffee spots, the aptly decorated wall features records from the past. You can find the hip coffee spot among the books.</string>
 			<key>isActivity</key>
@@ -88,9 +100,11 @@
 		</dict>
 		<dict>
 			<key>taskName</key>
-			<string>Snag &amp; snap a comfoty coffee couch </string>
+			<string>Snag a comfty coffee couch </string>
+			<key>locationName</key>
+			<string>java Wally&apos;s lounge</string>
 			<key>hint</key>
-			<string>The coveted couches in a hip coffee spot are hard to get during it&apos;s busiest hours. It&apos;s not an uncommon to see students catch a snooze between classes here.</string>
+			<string>The coveted couches in a hip coffee spot are hard to get during it&apos;s busiest hours. It&apos;s not an uncommon to see Tigers catch a snooze between classes here.</string>
 			<key>isActivity</key>
 			<string>1</string>
 			<key>points</key>
@@ -98,7 +112,9 @@
 		</dict>
 		<dict>
 			<key>taskName</key>
-			<string>Zen Garden</string>
+			<string>The Secret Garden</string>
+			<key>locationName</key>
+			<string>Kodak Quad Zen Garden</string>
 			<key>latitude</key>
 			<string>43.084717</string>
 			<key>longitude</key>
@@ -109,6 +125,34 @@
 			<string>0</string>
 			<key>points</key>
 			<string>40</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>Tiger Art Gallery</string>
+			<key>locationName</key>
+			<string>Bevier Gallery</string>
+			<key>latitude</key>
+			<string>43.084989</string>
+			<key>longitude</key>
+			<string>-77.677018</string>
+			<key>hint</key>
+			<string>One of many spots on campus for Tigers to showcase art, this gallery is located in Booth. The gallery often showcases the work and styles of multiple CIAS discplines.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>30</string>
+		</dict>
+		<dict>
+			<key>taskName</key>
+			<string>Find the Silver Infinity </string>
+			<key>locationName</key>
+			<string>Infinity Quad</string>
+			<key>hint</key>
+			<string>This infinity symbol rotates slowly so Tigers can view the inifinity at different angles throughout the day. The symbol is located in a quad named after this symbol between the Engineering, Science, and Art buildings.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>20</string>
 		</dict>
 	</array>
 </dict>

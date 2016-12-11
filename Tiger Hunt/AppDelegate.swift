@@ -63,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 var t: Task = Task()
                 
                 let taskName = dict["taskName"]! as! String
+                let locationName = dict["locationName"] as! String
                 let points = (dict["points"]! as! NSString).integerValue
                 let hint = dict["hint"]! as! String
                 let isActivity = (dict["isActivity"]! as! NSString).boolValue
@@ -73,9 +74,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let longitude = (dict["longitude"]! as! NSString).doubleValue
                     let location = CLLocation(latitude: latitude, longitude: longitude)
                 
-                    t = Task(taskName: taskName, points: points, hint: hint, location: location)
+                    t = Task(taskName: taskName, locationName: locationName, points: points, hint: hint, location: location)
                 } else {
-                    t = Task(taskName: taskName, points: points, hint: hint)
+                    t = Task(taskName: taskName, locationName: locationName, points: points, hint: hint)
                 }
                 
                 tasks.append(t)
@@ -88,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mapVC = tabBarController!.viewControllers![0] as! MapViewController
         
         let navVC = tabBarController!.viewControllers![1] as! UINavigationController
-        let taskVC = navVC.viewControllers[0] as! TaskViewController
+        let taskVC = navVC.viewControllers[0] as! TaskTableViewController
         
         let taskList = Tasks()
         taskList.taskList = tasks

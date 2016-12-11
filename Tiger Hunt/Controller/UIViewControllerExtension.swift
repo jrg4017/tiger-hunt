@@ -9,19 +9,15 @@
 import UIKit
 
 extension UIViewController {
+    
+    
     // MARK: - Custom border func
-    func customBottomBorder(_ textField: UITextField, color: String) {
+    func customBottomBorder(_ textField: UITextField) {
         let border = CALayer()
         let width = CGFloat(2.0)
         
         let colVal = CGFloat(187.0/255.0)
-        var borderColor = UIColor(red: colVal, green: colVal, blue: colVal, alpha: 1.0)
-        
-        
-        if color == "red" {
-            borderColor = UIColor.red
-        }
-        
+        let borderColor = UIColor(red: colVal, green: colVal, blue: colVal, alpha: 1.0)
         
         border.borderColor = borderColor.cgColor
         border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)

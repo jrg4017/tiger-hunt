@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    var user: User?
+    var user: User!
     
     // MARK: Constants
     let LOGIN_ERROR_TITLE: String = "Log In Error"
@@ -26,25 +26,24 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        customBottomBorder(self.usernameTextField!, color: "gray")
-        customBottomBorder(self.passwordTextField!, color: "gray")
+        self.customBottomBorder(self.usernameTextField!)
+        self.customBottomBorder(self.passwordTextField!)
     }
     
     // MARK: - IBAction
     @IBAction func loginUser(_ sender: UIButton) {
         if self.usernameTextField.text == "" || passwordTextField.text == "" {
-            loginAlert(title: LOGIN_ERROR_TITLE, msg: LOGIN_ERROR_MSG, textField: self.passwordTextField! )
+            self.loginAlert(title: self.LOGIN_ERROR_TITLE, msg: self.LOGIN_ERROR_MSG, textField: self.passwordTextField! )
         } else {
             // TODO:  implement get user info here
-            user = User(name: "Julie Gabler", email: "jrgabler@gmail.com", username: usernameTextField.text!)
-            print(user)
-            writeSession()
-            switchRootController()
+            self.user = User(name: "Julie Gabler", email: "jrgabler@gmail.com", username: self.usernameTextField.text!)
+            self.writeSession()
+            self.switchRootController()
         }
     }
     
     func writeSession() {
-        let userData = NSKeyedArchiver.archivedData(withRootObject: user!)
+        let userData = NSKeyedArchiver.archivedData(withRootObject: user)
         
         let defaults = UserDefaults.standard
         defaults.set(userData, forKey: "user")

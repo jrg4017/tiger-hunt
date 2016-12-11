@@ -23,20 +23,14 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textFieldArray = [self.nameTextField, self.emailTextField, self.usernameTextField, self.passwordTextField, self.confirmPassTextField]
+        self.textFieldArray = [self.nameTextField, self.emailTextField, self.usernameTextField, self.passwordTextField, self.confirmPassTextField]
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        for textField in textFieldArray {
-            customBottomBorder(textField, color: "gray")
+        for textField in self.textFieldArray {
+            self.customBottomBorder(textField)
         }
-        
-        
-//        customBottomBorder(self.emailTextField!, color: "gray")
-//        customBottomBorder(self.usernameTextField!, color: "gray")
-//        customBottomBorder(self.passwordTextField!, color: "gray")
-//        customBottomBorder(self.confirmPassTextField!, color: "gray")
     }
     
     // MARK: - Helper functions

@@ -21,7 +21,7 @@ extension MapViewController: MKMapViewDelegate {
     //button right and left clicks
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (control == view.rightCalloutAccessoryView) {
-            getDirections(view)
+            self.getDirections(view)
         }
 //        else if (control == view.leftCalloutAccessoryView) {
 //            goToWebsite(view)
@@ -35,7 +35,7 @@ extension MapViewController: MKMapViewDelegate {
         let lattitude = annotation?.coordinate.latitude
         let longitude = annotation?.coordinate.longitude
         
-        zoomRegion(lattitude!, longitude!, ZOOMED_IN_DELTA)
+        zoomRegion(lattitude!, longitude!, self.ZOOMED_IN_DELTA)
         
     }
     

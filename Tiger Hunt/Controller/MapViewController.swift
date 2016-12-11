@@ -41,10 +41,10 @@ class MapViewController: UIViewController {
     // MARK: - Actions
     //zooms out to initial view
     @IBAction func zoomViewOut(_ sender: UIButton) {
-        let lattitude = mapView.centerCoordinate.latitude
-        let longitude = mapView.centerCoordinate.longitude
+        let lattitude = self.mapView.centerCoordinate.latitude
+        let longitude = self.mapView.centerCoordinate.longitude
         
-        zoomRegion(lattitude, longitude, ZOOMED_OUT_DELTA)
+        zoomRegion(lattitude, longitude, self.ZOOMED_OUT_DELTA)
     }
     
     // MARK: - Lifecycle
@@ -53,11 +53,11 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadLocation()
-        loadAnnotations()
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        zoomRegion(RIT_LATTITUDE, RIT_LONGITUDE, ZOOMED_OUT_DELTA)
+        self.loadLocation()
+        self.loadAnnotations()
+        self.mapView.delegate = self
+        self.mapView.showsUserLocation = true
+        self.zoomRegion(self.RIT_LATTITUDE, self.RIT_LONGITUDE, self.ZOOMED_OUT_DELTA)
     }
     
     // MARK: - helper functions
@@ -67,41 +67,41 @@ class MapViewController: UIViewController {
         let center = CLLocationCoordinate2D(latitude: lattitude, longitude: longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta))
         
-        mapView.setRegion(region, animated: true)
+        self.mapView.setRegion(region, animated: true)
     }
     
     //switches to map view and shows the annotation in question
     func showOnMap(_ task: Task) {
-        tabBarController?.selectedIndex = MAP_VIEW_INDEX
+        self.tabBarController?.selectedIndex = MAP_VIEW_INDEX
         
         let lattitude = task.coordinate.latitude
         let longitude = task.coordinate.longitude
         
-        zoomRegion(lattitude, longitude, ZOOMED_IN_DELTA)
+        zoomRegion(lattitude, longitude, self.ZOOMED_IN_DELTA)
     }
     
     // MARK: Loading Data
     //asks for location and sets up the need for location to update
     func loadLocation() {
         // Ask for Authorisation from the User.
-        locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
-        locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.startUpdatingLocation()
         }
     }
     
     //adds all tasks that aren't activities on the map
     // activites don't contain location coordinates
     func loadAnnotations() {
-        for task in tasks {
+        for task in self.tasks {
             if !task.isActivity() {
-                mapView.addAnnotation(task)
+                self.mapView.addAnnotation(task)
             }
         }
     }//end loadannotations
