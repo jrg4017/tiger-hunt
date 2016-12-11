@@ -109,21 +109,47 @@ class TaskTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let task = (indexPath.section == 0) ? self.tasks[indexPath.row] : self.activities[indexPath.row]
-        
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        let task = (indexPath.section == 0) ? self.tasks[indexPath.row] : self.activities[indexPath.row]
+//        
 //        let detailVC = TaskDetailViewController(style: .grouped)
-        let detailVC = TaskDetailViewController()
-        detailVC.title =  task.getTaskName()
-        detailVC.task = task
+//        detailVC.title =  task.getTaskName()
+//
+//        if (self.completedTasks.index(of: task) != nil) {
+//            detailVC.isComplete = true
+//            detailVC.title = task.getLocationName()
+//        }
+//        
+////        navigationController?.performSegue(withIdentifier: "TaskDetailViewID", sender: self)
+//        navigationController?.pushViewController(detailVC, animated: true)
+//    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if  segue.identifier == "TaskDetailViewID",
+//            let detailVC = segue.destination as? TaskDetailViewController,
+//            let row = self.tableView.indexPathForSelectedRow?.row,
+//            let section = self.tableView.indexPathForSelectedRow?.section
+//        {
+//            let task = (section == 0) ? self.tasks[row] : self.activities[row]
+//
+//            detailVC.title =  task.getTaskName()
+//            detailVC.task = task
+//            detailVC.isComplete = (self.completedTasks.index(of: task) != nil) ? true : false
+////            detailVC
+//        }
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if segue.identifier == "TaskDetailViewID" ,
+        let nextScene = segue.destination as? TaskDetailViewController
+        let indexPath = self.tableView.indexPathForSelectedRow
         
-        if (self.completedTasks.index(of: task) != nil) {
-            detailVC.isComplete = true
-            detailVC.title = task.getLocationName()
-        }
+        let task = (indexPath?.section == 0) ? self.tasks[(indexPath?.row)!] : self.activities[(indexPath?.row)!]
         
-        navigationController?.pushViewController(detailVC, animated: true)
+        nextScene?.isComplete = (self.completedTasks.index(of: task) != nil) ? true : false
+        nextScene?.task = task
+        //}
     }
     
     func insertCompletedTask() {
