@@ -9,12 +9,13 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
+
     // MARK: - Properties
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var logoImageView: UIImageView!
     var user: User!
-    
+    @IBOutlet weak var loginButton: UIButton!
     // MARK: Constants
     let LOGIN_ERROR_TITLE: String = "Log In Error"
     let LOGIN_ERROR_MSG: String = "Your username or password is inccorect. Please try again"
@@ -28,6 +29,17 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.customBottomBorder(self.usernameTextField!)
         self.customBottomBorder(self.passwordTextField!)
+        
+        animateLoginScreen()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    
+        self.usernameTextField.alpha = 0.0
+        self.passwordTextField.alpha = 0.0
+        self.loginButton.alpha = 0.0
+        
     }
     
     // MARK: - IBAction
@@ -48,5 +60,25 @@ class LoginViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(userData, forKey: "user")
         defaults.synchronize()
+    }
+    
+    func animateLoginScreen() {
+        UIView.animate(withDuration: 1.2, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
+                let scale = CGAffineTransform(scaleX: 0.75, y: 0.75)
+                self.logoImageView.transform = scale
+            }, completion: nil)
+        
+        UIView.animate(withDuration: 1.0, delay: 1.2, options: .curveEaseIn, animations: {
+            self.usernameTextField.alpha = 1.0
+            }, completion: nil)
+        
+        UIView.animate(withDuration: 1.0, delay: 1.3, options: .curveEaseIn, animations: {
+            self.passwordTextField.alpha = 1.0
+            }, completion: nil)
+        
+        UIView.animate(withDuration: 1.0, delay: 1.4, options: .curveEaseIn, animations: {
+            self.loginButton.alpha = 1.0
+            }, completion: nil)
+        
     }
 }

@@ -17,6 +17,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
     
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var logoImageView: UIImageView!
     var textFieldArray: [UITextField] = []
     
     // MARK: - Lifeycle
@@ -27,12 +29,43 @@ class SignUpViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        for textField in self.textFieldArray {
+            textField.alpha = 0
+        }
+        
+        self.logoImageView.alpha = 0.0
+        self.registerButton.alpha = 0.0
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         for textField in self.textFieldArray {
             self.customBottomBorder(textField)
         }
+        
+        animateSignUpScreen()
     }
     
+    func animateSignUpScreen() {
+        UIView.animate(withDuration: 1.2, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
+                self.logoImageView.alpha = 1.0
+            }, completion: nil)
+        
+        
+       
+            UIView.animate(withDuration: 3.0, delay: 1.2, options: .curveEaseIn, animations: {
+                for textField in self.textFieldArray {
+                    textField.alpha = 1.0
+                }
+                }, completion: nil)
+
+
+        UIView.animate(withDuration: 3.0, delay: 1.5, options: .curveEaseIn, animations: {
+            self.registerButton.alpha = 1.0
+            }, completion: nil)
+        
+    }
+
     // MARK: - Helper functions
     func verifyInput() {
 //        for textField in textFieldArray {

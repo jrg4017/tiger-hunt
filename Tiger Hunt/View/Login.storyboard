@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="biY-eo-xYE">
             <objects>
-                <viewController id="8pp-Q3-xjv" customClass="LoginViewController" customModule="Tiger_Hunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="8pp-Q3-xjv" customClass="LoginViewController" customModule="Tiger_Hunt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a0o-jw-7na"/>
                         <viewControllerLayoutGuide type="bottom" id="AJO-pD-fEM"/>
@@ -19,6 +19,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pf-ab-IfX">
+                                <color key="backgroundColor" red="0.99994784589999997" green="1" blue="0.99987405539999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="nE5-Gd-iVy"/>
+                                </constraints>
+                                <state key="normal" title="Don't have an account? Register now">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6Ig-TU-xxL" kind="show" id="5HG-br-sP5">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tiger-marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="tTg-X4-pw3">
+                                <frame key="frameInset" minX="60" minY="85" width="255" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-ja-O3k">
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -49,24 +67,6 @@
                                     <action selector="loginUser:" destination="8pp-Q3-xjv" eventType="touchUpInside" id="i7S-eH-JlW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pf-ab-IfX">
-                                <color key="backgroundColor" red="0.99994784589999997" green="1" blue="0.99987405539999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="nE5-Gd-iVy"/>
-                                </constraints>
-                                <state key="normal" title="Don't have an account? Register now">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="6Ig-TU-xxL" kind="show" id="5HG-br-sP5">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tiger-marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z77-sL-bIW">
-                                <frame key="frameInset" minX="75" minY="99" width="225" height="164"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -77,7 +77,7 @@
                             <constraint firstItem="0kK-ja-O3k" firstAttribute="trailing" secondItem="cRq-A8-9AN" secondAttribute="trailing" id="YQT-ot-SiR"/>
                             <constraint firstItem="Mgp-Zr-Zqw" firstAttribute="centerX" secondItem="1pf-ab-IfX" secondAttribute="centerX" id="Z0j-Vo-zT3"/>
                             <constraint firstItem="1pf-ab-IfX" firstAttribute="bottom" secondItem="AJO-pD-fEM" secondAttribute="top" id="e4H-6g-58P"/>
-                            <constraint firstItem="0kK-ja-O3k" firstAttribute="top" secondItem="a0o-jw-7na" secondAttribute="bottom" constant="267" id="ePy-Ge-DIJ"/>
+                            <constraint firstItem="0kK-ja-O3k" firstAttribute="top" secondItem="a0o-jw-7na" secondAttribute="bottom" constant="300" id="ePy-Ge-DIJ"/>
                             <constraint firstItem="1pf-ab-IfX" firstAttribute="leading" secondItem="dm2-a3-Q75" secondAttribute="leading" id="l5y-3C-rNW"/>
                             <constraint firstItem="0kK-ja-O3k" firstAttribute="leading" secondItem="cRq-A8-9AN" secondAttribute="leading" id="ojO-F3-f42"/>
                             <constraint firstItem="cRq-A8-9AN" firstAttribute="leading" secondItem="Mgp-Zr-Zqw" secondAttribute="leading" id="rEl-Ds-hbp"/>
@@ -85,14 +85,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tfa-d2-pfD"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="loginButton" destination="Mgp-Zr-Zqw" id="MnC-yx-cuc"/>
+                        <outlet property="logoImageView" destination="tTg-X4-pw3" id="wzH-Ap-SwZ"/>
                         <outlet property="passwordTextField" destination="cRq-A8-9AN" id="5bZ-SD-8vr"/>
                         <outlet property="usernameTextField" destination="0kK-ja-O3k" id="4kV-f1-AZx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdE-p2-rVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1622" y="36"/>
+            <point key="canvasLocation" x="-1612" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wdj-JY-vDk">
@@ -177,6 +182,11 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="SHT-VE-eVX" kind="popoverPresentation" popoverAnchorView="0gj-ga-FYm" id="wQm-UV-hWZ">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tiger-marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="cRQ-bJ-CRM"/>
                         </subviews>
@@ -210,14 +220,119 @@
                     <connections>
                         <outlet property="confirmPassTextField" destination="hOx-5R-o2a" id="z0w-ee-H2b"/>
                         <outlet property="emailTextField" destination="6rp-E8-SBg" id="o3e-4C-B3c"/>
+                        <outlet property="logoImageView" destination="cRQ-bJ-CRM" id="NXJ-Nr-iJe"/>
                         <outlet property="nameTextField" destination="615-2M-VJG" id="FTr-qO-XVu"/>
                         <outlet property="passwordTextField" destination="MNP-Uc-hrk" id="CbT-Lm-h88"/>
+                        <outlet property="registerButton" destination="0gj-ga-FYm" id="WUZ-rf-VKB"/>
                         <outlet property="usernameTextField" destination="zj2-94-eXU" id="pcM-gL-Ris"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHW-e5-Tvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-745" y="36"/>
+            <point key="canvasLocation" x="-1623" y="764"/>
+        </scene>
+        <!--Tutorial Page View Controller-->
+        <scene sceneID="VXc-Db-N9v">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="SHT-VE-eVX" customClass="TutorialPageViewController" customModule="Tiger_Hunt" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQd-ga-Zmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-695" y="763"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ekY-mc-9mX">
+            <objects>
+                <viewController storyboardIdentifier="MarkerTutorialVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="82l-AC-jzh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aJA-T6-WPr"/>
+                        <viewControllerLayoutGuide type="bottom" id="c98-6g-u3q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FnJ-nV-tsR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="zt6-tz-ijX">
+                                <frame key="frameInset" minX="168" minY="622" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nRS-3n-TVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="326" y="-99"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jeV-Nh-KuX">
+            <objects>
+                <viewController storyboardIdentifier="TaskListTutorialVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fdi-TW-9CB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CpK-XN-dJn"/>
+                        <viewControllerLayoutGuide type="bottom" id="TTD-ja-RyS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NLa-hi-9tG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="RI7-35-Mc3">
+                                <frame key="frameInset" minX="168" minY="622" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pa9-NV-Gam" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="762"/>
+        </scene>
+        <!--Photo Submission View Controller-->
+        <scene sceneID="xKQ-Dy-d0m">
+            <objects>
+                <viewController storyboardIdentifier="PhotoSubmissionTutorialVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rrm-Dy-tS2" customClass="PhotoSubmissionViewController" customModule="Tiger_Hunt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PSM-AO-JZy"/>
+                        <viewControllerLayoutGuide type="bottom" id="sBf-gl-UIM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lEr-4z-Leq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="fOX-S4-obw">
+                                <color key="pageIndicatorTintColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWr-Ed-Sq8">
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="kqL-6F-izz"/>
+                                </constraints>
+                                <state key="normal" title="Ok I Got It!">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchViewController:" destination="Rrm-Dy-tS2" eventType="touchUpInside" id="RLU-ZP-c7t"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sBf-gl-UIM" firstAttribute="top" secondItem="fOX-S4-obw" secondAttribute="bottom" constant="8" symbolic="YES" id="BKP-j4-ySI"/>
+                            <constraint firstItem="eWr-Ed-Sq8" firstAttribute="centerX" secondItem="fOX-S4-obw" secondAttribute="centerX" id="VaT-2J-cli"/>
+                            <constraint firstItem="eWr-Ed-Sq8" firstAttribute="leading" secondItem="lEr-4z-Leq" secondAttribute="leadingMargin" constant="42" id="WDH-fR-dEL"/>
+                            <constraint firstItem="fOX-S4-obw" firstAttribute="top" secondItem="eWr-Ed-Sq8" secondAttribute="bottom" constant="26" id="hNy-pe-shE"/>
+                            <constraint firstItem="eWr-Ed-Sq8" firstAttribute="centerX" secondItem="lEr-4z-Leq" secondAttribute="centerX" id="sdG-Hv-tOo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gc6-y2-dV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="326" y="1566"/>
         </scene>
     </scenes>
     <resources>
