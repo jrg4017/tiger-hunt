@@ -21,7 +21,7 @@ extension MapViewController: MKMapViewDelegate {
     //button right and left clicks
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (control == view.rightCalloutAccessoryView) {
-            self.getDirections(view)
+            self.fetchDirections(view)
         }
 //        else if (control == view.leftCalloutAccessoryView) {
 //            goToWebsite(view)
@@ -69,7 +69,7 @@ extension MapViewController: MKMapViewDelegate {
     
     // MARK: - helper functions for MKMapViewDelegate
     //gets directions by going maps navigation
-    func getDirections(_ view: MKAnnotationView) {
+    func fetchDirections(_ view: MKAnnotationView) {
         let destination = view.annotation
         
         let currentLocMapItem = MKMapItem.forCurrentLocation()
@@ -86,15 +86,4 @@ extension MapViewController: MKMapViewDelegate {
         MKMapItem.openMaps(with: mapItems, launchOptions:launchOptions)
     }
     
-//    //goes to the task's website
-//    func goToWebsite(_ view: MKAnnotationView) {
-//        let annotation = view.annotation
-//        
-//        for task in tasks {
-//            if task.title == annotation?.title! {
-//                let taskURL = NSURL(string: task.getLink())! as URL
-//                UIApplication.shared.open(taskURL, options: [:], completionHandler: nil)
-//            }
-//        }
-//    } //end goToWebsite
 }

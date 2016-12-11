@@ -46,7 +46,8 @@ class TaskTableViewController: UITableViewController {
                 break;
         }
         
-        self.fetchCompletedTasks()
+        self.completedTasks = fetchTaskArray(self.tempTasks)
+        
         self.loadTasksActivites(self.isCompletedTab)
         self.tableView.reloadData()
     }
@@ -61,7 +62,8 @@ class TaskTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.fetchCompletedTasks()
+        self.completedTasks = fetchTaskArray(self.tempTasks)
+        
         self.loadTasksActivites(self.isCompletedTab)
         self.tableView.reloadData()
     }
@@ -125,21 +127,6 @@ class TaskTableViewController: UITableViewController {
 //        navigationController?.pushViewController(detailVC, animated: true)
 //    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if  segue.identifier == "TaskDetailViewID",
-//            let detailVC = segue.destination as? TaskDetailViewController,
-//            let row = self.tableView.indexPathForSelectedRow?.row,
-//            let section = self.tableView.indexPathForSelectedRow?.section
-//        {
-//            let task = (section == 0) ? self.tasks[row] : self.activities[row]
-//
-//            detailVC.title =  task.getTaskName()
-//            detailVC.task = task
-//            detailVC.isComplete = (self.completedTasks.index(of: task) != nil) ? true : false
-////            detailVC
-//        }
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //if segue.identifier == "TaskDetailViewID" ,
         let nextScene = segue.destination as? TaskDetailViewController
@@ -150,18 +137,6 @@ class TaskTableViewController: UITableViewController {
         nextScene?.isComplete = (self.completedTasks.index(of: task) != nil) ? true : false
         nextScene?.task = task
         //}
-    }
-    
-    func insertCompletedTask() {
-        
-    }
-    
-    func fetchCompletedTasks() {
-        let taskData = UserDefaults.standard.object(forKey: "completedTasks") as? Data
-
-        if let taskData = taskData {
-            self.completedTasks = (NSKeyedUnarchiver.unarchiveObject(with: taskData) as? [Task])!
-        }
     }
     
     func loadTasksActivites(_ isCompletedTab: Bool) {

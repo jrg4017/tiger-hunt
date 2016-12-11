@@ -35,7 +35,7 @@ class Task: NSObject, NSCoding, MKAnnotation {
     
     @objc var subtitle: String? {
         get {
-            return "\(self.points)"
+            return "\(self.points) points"
         }
     }
     

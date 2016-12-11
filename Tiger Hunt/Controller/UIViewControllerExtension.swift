@@ -36,4 +36,44 @@ extension UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    func insertCompletedTask(task: Task) {
+        var completedTasks = fetchCompletedTasks()
+        
+        if !(completedTasks.contains(task.getTaskName())) {
+            completedTasks.append(task.getTaskName())
+            
+            let taskData = NSKeyedArchiver.archivedData(withRootObject: completedTasks)
+            
+            let defaults = UserDefaults.standard
+            defaults.set(taskData, forKey: "completedTasks")
+            defaults.synchronize()
+        }
+    }
+    
+    func fetchCompletedTasks() -> [String] {
+        let taskData = UserDefaults.standard.object(forKey: "completedTasks") as? Data
+        var completedTasks: [String] = []
+        
+        if let taskData = taskData {
+            completedTasks = (NSKeyedUnarchiver.unarchiveObject(with: taskData) as? [String])!
+        }
+        
+        return completedTasks
+    }
+    
+    func fetchTaskArray(_ allTasksArr: [Task]) -> [Task] {
+        var completedTasks: [Task] = []
+        let stringArr = fetchCompletedTasks()
+        
+        for t in stringArr {
+            for ta in allTasksArr {
+                if t == ta.getTaskName() {
+                    completedTasks.append(ta)
+                }
+            }
+        }
+        
+        return completedTasks
+    }
 }
