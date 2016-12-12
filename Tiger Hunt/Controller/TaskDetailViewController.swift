@@ -31,15 +31,18 @@ class TaskDetailViewController: UIViewController {
     func markComplete() {
         self.insertCompletedTask(task: self.task)
         self.isComplete = true
-        self.submitPhotoButton.isHidden = true
-//          todo adjust layout when .removeSuperView() is called
+        UIView.animate(withDuration: 1.0, animations: {
+            self.submitPhotoButton.alpha = 0.0
+            }) { (true) in
+                self.submitPhotoButton.isHidden = true
+        }
     }
-        
     
     @IBAction func showOnMap(_ sender: UIButton) {
         let mapVC = tabBarController?.viewControllers?[0] as! MapViewController
         mapVC.showOnMap(self.task)
     }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

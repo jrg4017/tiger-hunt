@@ -27,6 +27,9 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        self.hideTextFields()
+        
         self.customBottomBorder(self.usernameTextField!)
         self.customBottomBorder(self.passwordTextField!)
         
@@ -35,11 +38,14 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        //self.hideTextFields()
+    }
     
-        self.usernameTextField.alpha = 0.0
-        self.passwordTextField.alpha = 0.0
-        self.loginButton.alpha = 0.0
-        
+    func hideTextFields() {
+        let width = self.view.bounds.width
+        self.usernameTextField.center.x -= width
+        self.passwordTextField.center.x -= width
+        self.loginButton.center.x -= width
     }
     
     // MARK: - IBAction
@@ -68,16 +74,16 @@ class LoginViewController: UIViewController {
                 self.logoImageView.transform = scale
             }, completion: nil)
         
-        UIView.animate(withDuration: 1.0, delay: 1.2, options: .curveEaseIn, animations: {
-            self.usernameTextField.alpha = 1.0
+        UIView.animate(withDuration: 1.0, delay: 1.2, options: [], animations: {
+                self.usernameTextField.center.x += self.view.bounds.width
             }, completion: nil)
         
-        UIView.animate(withDuration: 1.0, delay: 1.3, options: .curveEaseIn, animations: {
-            self.passwordTextField.alpha = 1.0
+        UIView.animate(withDuration: 1.0, delay: 1.3, options: [], animations: {
+                self.passwordTextField.center.x += self.view.bounds.width
             }, completion: nil)
         
-        UIView.animate(withDuration: 1.0, delay: 1.4, options: .curveEaseIn, animations: {
-            self.loginButton.alpha = 1.0
+        UIView.animate(withDuration: 1.0, delay: 1.4, options: [], animations: {
+                self.loginButton.center.x += self.view.bounds.width
             }, completion: nil)
         
     }

@@ -32,4 +32,11 @@ extension TutorialPageViewController: UIPageViewControllerDataSource {
         
         return self.tutorialViewControllers[nextIndex]
     }
+    
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if let firstViewController = viewControllers?.first,
+            let index = self.tutorialViewControllers.index(of: firstViewController) {
+            self.tutorialDelegate?.tutorialPageViewController(tutorialPageViewController: self, didUpdatePageIndex: index)
+        }
+    }
 }

@@ -29,6 +29,9 @@
 		F6587ACC1DFDF83F00579981 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587ACB1DFDF83F00579981 /* TutorialPageViewController.swift */; };
 		F6587AD41DFDFAE000579981 /* TutorialPageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AD31DFDFAE000579981 /* TutorialPageExtension.swift */; };
 		F6587AD61DFE045E00579981 /* PhotoSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AD51DFE045E00579981 /* PhotoSubmissionViewController.swift */; };
+		F6587AD81DFE0B8500579981 /* TutorialPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587AD71DFE0B8500579981 /* TutorialPageViewControllerDelegate.swift */; };
+		F6587ADB1DFE0C2E00579981 /* TutorialPageControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587ADA1DFE0C2E00579981 /* TutorialPageControlExtension.swift */; };
+		F6587ADD1DFE0CA800579981 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6587ADC1DFE0CA800579981 /* TutorialViewController.swift */; };
 		F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */; };
 		F6B7592D1DFA7F7A00D2473C /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */; };
 		F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */; };
@@ -66,6 +69,9 @@
 		F6587ACB1DFDF83F00579981 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialPageViewController.swift; path = Controller/TutorialPageViewController.swift; sourceTree = "<group>"; };
 		F6587AD31DFDFAE000579981 /* TutorialPageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageExtension.swift; sourceTree = "<group>"; };
 		F6587AD51DFE045E00579981 /* PhotoSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoSubmissionViewController.swift; path = Controller/PhotoSubmissionViewController.swift; sourceTree = "<group>"; };
+		F6587AD71DFE0B8500579981 /* TutorialPageViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialPageViewControllerDelegate.swift; path = Controller/TutorialPageViewControllerDelegate.swift; sourceTree = "<group>"; };
+		F6587ADA1DFE0C2E00579981 /* TutorialPageControlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageControlExtension.swift; sourceTree = "<group>"; };
+		F6587ADC1DFE0CA800579981 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialViewController.swift; path = Controller/TutorialViewController.swift; sourceTree = "<group>"; };
 		F6B7592A1DFA7E0D00D2473C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		F6B7592C1DFA7F7A00D2473C /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Controller/UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		F6B7592E1DFA80F600D2473C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controller/SignUpViewController.swift; sourceTree = "<group>"; };
@@ -167,9 +173,11 @@
 		F6587ACD1DFDF84300579981 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				F6587ADC1DFE0CA800579981 /* TutorialViewController.swift */,
 				F6587ACB1DFDF83F00579981 /* TutorialPageViewController.swift */,
 				F6587AD51DFE045E00579981 /* PhotoSubmissionViewController.swift */,
 				F6587AD21DFDFAC800579981 /* Extensions */,
+				F6587AD91DFE0BC300579981 /* Protocols */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -195,8 +203,17 @@
 			isa = PBXGroup;
 			children = (
 				F6587AD31DFDFAE000579981 /* TutorialPageExtension.swift */,
+				F6587ADA1DFE0C2E00579981 /* TutorialPageControlExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		F6587AD91DFE0BC300579981 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F6587AD71DFE0B8500579981 /* TutorialPageViewControllerDelegate.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		F6B759251DFA78A700D2473C /* ViewController */ = {
@@ -357,7 +374,9 @@
 				F6587ACA1DFD563100579981 /* ProfileVCExtension.swift in Sources */,
 				F6B7592F1DFA80F600D2473C /* SignUpViewController.swift in Sources */,
 				F6587AD41DFDFAE000579981 /* TutorialPageExtension.swift in Sources */,
+				F6587ADD1DFE0CA800579981 /* TutorialViewController.swift in Sources */,
 				F6B7592B1DFA7E0D00D2473C /* LoginViewController.swift in Sources */,
+				F6587ADB1DFE0C2E00579981 /* TutorialPageControlExtension.swift in Sources */,
 				F6F91C541DFC66D800FB8F3A /* TableViewExtension.swift in Sources */,
 				F625780E1DFD3BDE00B79ABA /* ProfileController.swift in Sources */,
 				F63A4A511DFB5A820090D25D /* Task.swift in Sources */,
@@ -373,6 +392,7 @@
 				F6587AD61DFE045E00579981 /* PhotoSubmissionViewController.swift in Sources */,
 				F6B759381DFB38AF00D2473C /* User.swift in Sources */,
 				F6587AC11DFD45FA00579981 /* ImageViewExtension.swift in Sources */,
+				F6587AD81DFE0B8500579981 /* TutorialPageViewControllerDelegate.swift in Sources */,
 				F63A4A471DFB54BE0090D25D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

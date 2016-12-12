@@ -21,6 +21,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     var textFieldArray: [UITextField] = []
     
+    let ANIMATION_DELAY: Double = 0.1
+    
     // MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +50,21 @@ class SignUpViewController: UIViewController {
     
     func animateSignUpScreen() {
         UIView.animate(withDuration: 1.2, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
-                self.logoImageView.alpha = 1.0
+                let scale = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                self.logoImageView.transform = scale
             }, completion: nil)
         
+        var delay = 1.3
+        for textField in self.textFieldArray {
+            UIView.animate(withDuration: 1.0, delay: delay, options: [], animations: {
+                textField.center.x -= self.view.bounds.width
+            }, completion: nil)
+            delay += ANIMATION_DELAY
+        }
         
-       
-            UIView.animate(withDuration: 3.0, delay: 1.2, options: .curveEaseIn, animations: {
-                for textField in self.textFieldArray {
-                    textField.alpha = 1.0
-                }
-                }, completion: nil)
-
+        UIView.animate(withDuration: 1.0, delay: (delay + ANIMATION_DELAY), options: [], animations: {
+            self.registerButton.center.x -= self.view.bounds.width
+        }, completion: nil)
 
         UIView.animate(withDuration: 3.0, delay: 1.5, options: .curveEaseIn, animations: {
             self.registerButton.alpha = 1.0

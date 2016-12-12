@@ -183,7 +183,7 @@
                                     <color key="titleColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SHT-VE-eVX" kind="popoverPresentation" popoverAnchorView="0gj-ga-FYm" id="wQm-UV-hWZ">
+                                    <segue destination="ofb-s3-lJL" kind="popoverPresentation" popoverAnchorView="0gj-ga-FYm" id="fMt-cO-PBK">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -231,13 +231,42 @@
             </objects>
             <point key="canvasLocation" x="-1623" y="764"/>
         </scene>
-        <!--Tutorial Page View Controller-->
-        <scene sceneID="VXc-Db-N9v">
+        <!--View Controller-->
+        <scene sceneID="Irn-7c-Nuo">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="SHT-VE-eVX" customClass="TutorialPageViewController" customModule="Tiger_Hunt" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zQd-ga-Zmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="ofb-s3-lJL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="It3-SL-uxr"/>
+                        <viewControllerLayoutGuide type="bottom" id="KSe-F6-TgL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="itk-8R-6hQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpx-K5-gzo">
+                                <connections>
+                                    <segue destination="V86-x4-FhQ" kind="embed" id="WRV-KB-Dqr"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="w93-J7-wva">
+                                <color key="pageIndicatorTintColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gpx-K5-gzo" firstAttribute="bottom" secondItem="KSe-F6-TgL" secondAttribute="top" id="1aJ-MN-w9l"/>
+                            <constraint firstItem="gpx-K5-gzo" firstAttribute="top" secondItem="It3-SL-uxr" secondAttribute="bottom" constant="8" symbolic="YES" id="R8i-z2-y12"/>
+                            <constraint firstItem="w93-J7-wva" firstAttribute="centerX" secondItem="gpx-K5-gzo" secondAttribute="centerX" id="a5y-d8-73L"/>
+                            <constraint firstAttribute="trailing" secondItem="gpx-K5-gzo" secondAttribute="trailing" id="ldk-5g-4xd"/>
+                            <constraint firstItem="gpx-K5-gzo" firstAttribute="leading" secondItem="itk-8R-6hQ" secondAttribute="leading" id="ogo-Kx-u57"/>
+                            <constraint firstAttribute="bottom" secondItem="w93-J7-wva" secondAttribute="bottom" constant="20" symbolic="YES" id="sf7-pV-imV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mkT-2k-LNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-695" y="763"/>
+            <point key="canvasLocation" x="-591" y="763"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ekY-mc-9mX">
@@ -257,13 +286,21 @@
                                 <color key="pageIndicatorTintColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tiger-marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z2i-OQ-w8K">
+                                <frame key="frameInset" minX="104" minY="85" width="56" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tiger-marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="KZq-29-gjj">
+                                <frame key="frameInset" minX="214" minY="85" width="56" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRS-3n-TVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="-99"/>
+            <point key="canvasLocation" x="-1535" y="2239"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jeV-Nh-KuX">
@@ -276,20 +313,12 @@
                     <view key="view" contentMode="scaleToFill" id="NLa-hi-9tG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="RI7-35-Mc3">
-                                <frame key="frameInset" minX="168" minY="622" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pageControl>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pa9-NV-Gam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="327" y="762"/>
+            <point key="canvasLocation" x="-591" y="2239"/>
         </scene>
         <!--Photo Submission View Controller-->
         <scene sceneID="xKQ-Dy-d0m">
@@ -319,6 +348,10 @@
                                     <action selector="switchViewController:" destination="Rrm-Dy-tS2" eventType="touchUpInside" id="RLU-ZP-c7t"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ty7-Oc-AHj">
+                                <frame key="frameInset" minX="129" minY="75" width="161" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -332,7 +365,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gc6-y2-dV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="1566"/>
+            <point key="canvasLocation" x="321" y="2239"/>
+        </scene>
+        <!--Tutorial Page View Controller-->
+        <scene sceneID="Ou1-NH-Bmx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWV-qq-aSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="V86-x4-FhQ" customClass="TutorialPageViewController" customModule="Tiger_Hunt" customModuleProvider="target" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="-591" y="1542"/>
         </scene>
     </scenes>
     <resources>

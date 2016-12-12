@@ -15,6 +15,24 @@ class TutorialPageViewController: UIPageViewController {
                 self.newTutorialViewController("PhotoSubmission")]
     }()
     
+    weak var tutorialDelegate: TutorialPageViewControllerDelegate?
+    
+    //to programatically set transition style to scroll, must be done at initialization [;
+//    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
+//        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+//    
+    
+    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +41,9 @@ class TutorialPageViewController: UIPageViewController {
         if let firstViewController = self.tutorialViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
+        
+        tutorialDelegate?.tutorialPageViewController(tutorialPageViewController: self, didUpdatePageCount: self.tutorialViewControllers.count)
+        
     }
     
     private func newTutorialViewController(_ tutorial: String) -> UIViewController {
