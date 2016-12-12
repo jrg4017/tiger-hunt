@@ -14,6 +14,7 @@ class TaskDetailViewController: UIViewController {
     var task: Task!
     var isComplete: Bool = false
     let picker = UIImagePickerController()
+    var user: User?
 
     @IBOutlet weak var taskImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -36,6 +37,10 @@ class TaskDetailViewController: UIViewController {
             }) { (true) in
                 self.submitPhotoButton.isHidden = true
         }
+        
+        let points = (self.user?.getTotalPoints())! + self.task.getPoints()
+        self.user?.setTotalPoints(points)
+        DataService.dataService.persistUser(self.user!)
     }
     
     @IBAction func showOnMap(_ sender: UIButton) {

@@ -13,6 +13,7 @@ import MapKit
 class Task: NSObject, NSCoding, MKAnnotation {
     
     // MARK: - Properties
+    private var id: Int
     private var taskName: String = ""
     private var locationName: String = ""
     private var points: Int = 0
@@ -41,11 +42,12 @@ class Task: NSObject, NSCoding, MKAnnotation {
     
     // MARK: NSObject property override
     override var description : String {
-        return "{\n\tlocationName: \(self.locationName)\n\tttaskName: \(self.taskName)\n\tpoints: \(self.points)\n\thint: \(self.hint)\n\tlocation: \(self.location!)\n\t isActivity: \(self.isActivityTask)\n}"
+        return "{\n\tid: \(self.id)\n\tlocationName: \(self.locationName)\n\tttaskName: \(self.taskName)\n\tpoints: \(self.points)\n\thint: \(self.hint)\n\tlocation: \(self.location!)\n\t isActivity: \(self.isActivityTask)\n}"
     }
     
     // MARK: - Initializers
-    init(taskName: String, locationName: String, points: Int, hint: String, location: CLLocation?) {
+    init(id: Int, taskName: String, locationName: String, points: Int, hint: String, location: CLLocation?) {
+        self.id = id
         self.taskName = taskName
         self.locationName = locationName
         self.points = points
@@ -55,7 +57,8 @@ class Task: NSObject, NSCoding, MKAnnotation {
         super.init()
     }
     
-    init(taskName: String, locationName: String, points: Int, hint: String) {
+    init(id: Int, taskName: String, locationName: String, points: Int, hint: String) {
+        self.id = id
         self.taskName = taskName
         self.locationName = locationName
         self.points = points
@@ -67,25 +70,26 @@ class Task: NSObject, NSCoding, MKAnnotation {
     }
     
     override convenience init() {
-        self.init(taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is", location: nil)
+        self.init(id: 0, taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is", location: nil)
     }
     
     convenience init(isActivity: Bool) {
-        self.init(taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is")
+        self.init(id: 0, taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is")
     }
     
     // MARK: NSCoding intializers
     required init(coder aDecoder: NSCoder) {
-        self.taskName = aDecoder.decodeObject(forKey: "taskName") as! String
+        self.id = aDecoder.decodeObject(forKey: "taskId") as! Int
         
         super.init()
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.taskName, forKey: "taskName")
+        aCoder.encode(self.id, forKey: "taskId")
     }
     
     // MARK: - Mutators and Accessors
+    func getID() -> Int { return self.id }
     func setLocationName(_ locationName: String) { self.locationName = locationName }
     func getLocationName() -> String? { return self.locationName }
     func setTaskName(_ taskName: String) { self.taskName = taskName }

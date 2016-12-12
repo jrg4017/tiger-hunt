@@ -15,13 +15,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var joinDateLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    
-    let SIGNOUT_ERROR_TITLE: String = "Sign Out Error"
-    let SIGNOUT_ERROR_MSG: String = " Hmm, something went wrong. Try again later."
     
     var user: User?
     
@@ -30,6 +25,12 @@ class ProfileViewController: UIViewController {
         self.picker.sourceType = .photoLibrary
         self.picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(self.picker, animated: true, completion: nil)
+    }
+
+    @IBAction func deleteUser(_ sender: AnyObject) {
+        DataService.dataService.removeUser(self.user)
+        FIRAuth.auth()?.currentUser
+        user?.ise
     }
     
     override func viewDidLoad() {
@@ -49,19 +50,52 @@ class ProfileViewController: UIViewController {
     
     func logout(sender: UIBarButtonItem) {
         try! FIRAuth.auth()?.signOut()
+        
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: ("uid"))
+        defaults.synchronize()
+        
         self.switchRootController(storyboardName: "Login")
     }
     
     func setData() {
-        self.user = self.getUser()
+        loadUser()
         
         self.nameLabel.text = self.user?.getName()
-        self.usernameLabel.text = "\(self.user?.getDateJoined())"
         self.emailLabel.text = self.user?.getEmail()
         self.scoreLabel.text = "\(self.user?.getTotalPoints()) points"
         
         self.profilePicImageView.image = UIImage(named: "not-submitted.png")
         
         self.profilePicImageView.maskCircle(view: self.view)
+    }
+    
+    func loadUser() {
+        let firUser = FIRAuth.auth()?.currentUser
+        
+        //single update of name and email
+        DataService.dataService.USERS_REF.child((firUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let name = value?["name"] as? String ?? ""
+           
+            self.nameLabel.text = name
+            self.emailLabel.text = firUser?.email
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        //continual update of current points
+        DataService.dataService.USERS_REF.child((firUser?.uid)!).observe(.value,  with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let totalPoints = value?["totalPoints"] as? Int ?? 0
+            
+            self.scoreLabel.text = "\(totalPoints) points"
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 }

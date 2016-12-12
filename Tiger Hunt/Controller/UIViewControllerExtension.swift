@@ -97,28 +97,19 @@ extension UIViewController {
             }, completion: nil)
     }
     
-    func getUser() -> User {
-        var user: User = User()
+    func writeUID(_ uid: String) {
+        let defaults = UserDefaults.standard
+        defaults.setValue(uid, forKey: "uid")
+        defaults.synchronize()
+    }
+    
+    func loadUser(_ firUser: FIRUser, _ name: String) -> User {
+        return User(
+            uid: firUser.uid,
+            name: name,
+            email: firUser.email!,
+            totalPoints: 0
+        )
         
-        if let firUser = FIRAuth.auth()!.currentUser {
-            
-            let ref = FIRDatabase.database().reference()
-            
-            ref.child("users").child(firUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                let value = snapshot.value as? NSDictionary
-                let name = value?["name"] as? String ?? ""
-                let points = value?["totalPoints"] as? Int ?? 0
-                let date = value?["dateJoined"] as? Date ?? Date()
-                
-                user = User(name: name, email: firUser.email!, totalPoints: points, date: date)
-                print(user)
-            }) { (error) in
-                print("\n\n\nyo \(error.localizedDescription)")
-            }
-            
-        }
-        
-        return user
     }
 }

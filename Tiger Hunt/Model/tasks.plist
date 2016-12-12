@@ -7,6 +7,8 @@
 	<key>tasks</key>
 	<array>
 		<dict>
+			<key>taskID</key>
+			<string>1</string>
 			<key>taskName</key>
 			<string>Large metal sculpture</string>
 			<key>locationName</key>
@@ -23,6 +25,8 @@
 			<string>20</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>2</string>
 			<key>taskName</key>
 			<string>Religous Center</string>
 			<key>locationName</key>
@@ -39,6 +43,8 @@
 			<string>20</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>3</string>
 			<key>taskName</key>
 			<string>Free Gum Hotspot</string>
 			<key>locationName</key>
@@ -55,6 +61,8 @@
 			<string>20</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>4</string>
 			<key>taskName</key>
 			<string>RIT&apos;s Radio Station</string>
 			<key>locationName</key>
@@ -71,6 +79,8 @@
 			<string>20</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>5</string>
 			<key>taskName</key>
 			<string>Home of the Tiger Library</string>
 			<key>locationName</key>
@@ -87,6 +97,8 @@
 			<string>20</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>6</string>
 			<key>taskName</key>
 			<string>Find the Music Record Wall</string>
 			<key>locationName</key>
@@ -99,6 +111,8 @@
 			<string>30</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>7</string>
 			<key>taskName</key>
 			<string>Snag a comfty coffee couch </string>
 			<key>locationName</key>
@@ -111,6 +125,8 @@
 			<string>30</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>8</string>
 			<key>taskName</key>
 			<string>The Secret Garden</string>
 			<key>locationName</key>
@@ -127,6 +143,8 @@
 			<string>40</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>9</string>
 			<key>taskName</key>
 			<string>Tiger Art Gallery</string>
 			<key>locationName</key>
@@ -143,6 +161,8 @@
 			<string>30</string>
 		</dict>
 		<dict>
+			<key>taskID</key>
+			<string>10</string>
 			<key>taskName</key>
 			<string>Find the Silver Infinity </string>
 			<key>locationName</key>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class TaskTableViewController: UITableViewController {
 
@@ -26,13 +27,7 @@ class TaskTableViewController: UITableViewController {
 
     var tasks: [Task] = []
     var activities: [Task] = []
-    
-    // MARK: - Constant properties
-    let RIT_ORANGE: UIColor = UIColor(red: CGFloat(243.0/255.0), green: CGFloat(110.0/255.0), blue: CGFloat(33.0/255.0), alpha: 1.0)
-    let NUM_OF_SECTIONS: Int = 2
-    let TASK_LIST_TITLE: String = "PLACES"
-    let ACTIVITY_TITLE: String = "ACTIVITIES (BONUS)"
-
+    var user: User = User()
     
     // MARK: - IBActions
     @IBAction func switchTaskList(_ sender: UISegmentedControl) {
@@ -56,8 +51,8 @@ class TaskTableViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.barTintColor = self.RIT_ORANGE
+        loadUser()
+        self.navigationController?.navigationBar.barTintColor = Constants.RIT_ORANGE
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +64,7 @@ class TaskTableViewController: UITableViewController {
     
     // MARK: - UITableViewDelegate functions
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.NUM_OF_SECTIONS
+        return Constants.NUM_OF_SECTIONS
     }
     
     //return the number of cells to display total
@@ -79,10 +74,10 @@ class TaskTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 && self.tasks.count > 0 {
-            return self.TASK_LIST_TITLE
+            return Constants.TASK_LIST_TITLE
         }
         
-        return (section == 1 && self.activities.count > 0) ? self.ACTIVITY_TITLE : nil
+        return (section == 1 && self.activities.count > 0) ? Constants.ACTIVITY_TITLE : nil
     }
     
     //display the text for the intial cell view, calls parent class
@@ -118,6 +113,7 @@ class TaskTableViewController: UITableViewController {
         
         nextScene?.isComplete = (self.completedTasks.index(of: task) != nil) ? true : false
         nextScene?.task = task
+        nextScene?.user = self.user
     }
     
     func loadTasksActivites(_ isCompletedTab: Bool) {
@@ -148,6 +144,28 @@ class TaskTableViewController: UITableViewController {
                 self.activities.append(task)
             }
         }
+    }
+    
+    func loadUser() {
+        let firUser: FIRUser = (FIRAuth.auth()?.currentUser)!
+        
+        DataService.dataService.USERS_REF.child(firUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let name = value?["name"] as? String ?? ""
+            let totalPoints = value?["totalPoints"] as? Int ?? 0
+            
+            self.user = User(
+                uid: firUser.uid,
+                name: name,
+                email: firUser.email!,
+                totalPoints: totalPoints
+            )
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
     }
     
 }

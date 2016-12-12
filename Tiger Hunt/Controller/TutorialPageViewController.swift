@@ -14,10 +14,7 @@ class TutorialPageViewController: UIPageViewController {
                 self.newTutorialViewController("TaskList"),
                 self.newTutorialViewController("PhotoSubmission")]
     }()
-    
-    weak var tutorialDelegate: TutorialPageViewControllerDelegate?
-    
-    
+
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
     }
@@ -34,8 +31,6 @@ class TutorialPageViewController: UIPageViewController {
         if let firstViewController = self.tutorialViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
-        
-        tutorialDelegate?.tutorialPageViewController(tutorialPageViewController: self, didUpdatePageCount: self.tutorialViewControllers.count)
         
     }
     

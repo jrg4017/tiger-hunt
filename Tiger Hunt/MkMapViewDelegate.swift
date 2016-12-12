@@ -23,9 +23,6 @@ extension MapViewController: MKMapViewDelegate {
         if (control == view.rightCalloutAccessoryView) {
             self.fetchDirections(view)
         }
-//        else if (control == view.leftCalloutAccessoryView) {
-//            goToWebsite(view)
-//        }
     }
     
     //zoom on selected annotation
@@ -35,7 +32,7 @@ extension MapViewController: MKMapViewDelegate {
         let lattitude = annotation?.coordinate.latitude
         let longitude = annotation?.coordinate.longitude
         
-        zoomRegion(lattitude!, longitude!, self.ZOOMED_IN_DELTA)
+        zoomRegion(lattitude!, longitude!, Constants.ZOOMED_IN_DELTA)
         
     }
     

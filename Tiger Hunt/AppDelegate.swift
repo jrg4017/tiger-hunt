@@ -17,25 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var loginSession: String = ""
-//    var user: User?
+    var user: User?
     var tasks: [Task] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
         
         //load in the user and task data
         self.loadTasks()
+        self.setViewControllerTaskLists()
         
         //if the user isn't logged in set the rootcontroller the Login storyboard
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user == nil {
                 self.window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
-            }
+            } 
         }
 
-        self.setViewControllerTaskLists()
-        
-        FIRDatabase.database().persistenceEnabled = true
         
         return true
     }
@@ -70,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for dict in tempArray {
                 var t: Task = Task()
                 
+                let id = (dict["taskID"] as! NSString).integerValue
                 let taskName = dict["taskName"]! as! String
                 let locationName = dict["locationName"] as! String
                 let points = (dict["points"]! as! NSString).integerValue
@@ -82,9 +82,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let longitude = (dict["longitude"]! as! NSString).doubleValue
                     let location = CLLocation(latitude: latitude, longitude: longitude)
                 
-                    t = Task(taskName: taskName, locationName: locationName, points: points, hint: hint, location: location)
+                    t = Task(id: id, taskName: taskName, locationName: locationName, points: points, hint: hint, location: location)
                 } else {
-                    t = Task(taskName: taskName, locationName: locationName, points: points, hint: hint)
+                    t = Task(id: id, taskName: taskName, locationName: locationName, points: points, hint: hint)
                 }
                 
                 tasks.append(t)
@@ -104,16 +104,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mapVC.taskList = taskList
         taskVC.taskList = taskList
     }
-
-    
-    func switchRootController() {
-        self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-        
-        self.loadTasks()
-        self.setViewControllerTaskLists()
-        
-        self.window?.makeKeyAndVisible()
-    }
-    
 }
 

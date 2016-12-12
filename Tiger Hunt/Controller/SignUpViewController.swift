@@ -16,17 +16,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
-    
     @IBOutlet weak var registerButton: UIButton!
+    
     @IBOutlet weak var logoImageView: UIImageView!
     private(set) lazy var textFieldArray: [UITextField] = { return self.setTextFieldArray() }()
     
-    let SIGNUP_ERROR_TITLE: String = "Registraton Error"
-    let INVALID_EMAIL_MSG: String = "Your password is invalid. Please try again."
-    let WEAK_PASSWORD_MSG: String = "You have entered a weak password. Please try again."
-    let GENERIC_ERROR_MSG: String = "Hmm, something went wrong. Please try again"
-    let ANIMATION_DELAY: Double = 0.1
-    
+    var user: User?
+
     // MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,11 +70,11 @@ class SignUpViewController: UIViewController {
         var delay = 1.0
         
         self.slideView(self.logoImageView, direction: "left", delayStart: delay)
-        delay += ANIMATION_DELAY
+        delay += Constants.ANIMATION_DELAY
         
         for textField in textFieldArray {
             self.slideView(textField, direction: "left", delayStart: delay)
-            delay += ANIMATION_DELAY
+            delay += Constants.ANIMATION_DELAY
         }
         
         self.slideView(self.registerButton, direction: "left", delayStart: delay)
@@ -93,27 +89,21 @@ class SignUpViewController: UIViewController {
                     switch errCode {
                         case .errorCodeWeakPassword:
                             //msg = self.ACCOUNT_NOT_ENABLED
-                            msg = self.WEAK_PASSWORD_MSG
+                            msg = Constants.WEAK_PASSWORD_MSG
                         case .errorCodeInvalidEmail:
-                            msg = self.INVALID_EMAIL_MSG
+                            msg = Constants.INVALID_EMAIL_MSG
                         default:
-                            msg = self.GENERIC_ERROR_MSG
+                            msg = Constants.GENERIC_ERROR_MSG
                         }
                     
-                    self.loginAlert(title: self.SIGNUP_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
+                    self.loginAlert(title: Constants.SIGNUP_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
                 }
             } else {
                 FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
+                self.writeUID((user?.uid)!)
+                let newUser = self.loadUser(user!, self.nameTextField.text!)
+                DataService.dataService.persistUser(newUser)
             }
         }
-    }
-
-    // MARK: - Helper functions
-    func verifyInput() {
-//        for textField in textFieldArray {
-//            if textField.text == "" {
-//                loginAlert(title: String, msg: <#T##String#>, textField: <#T##UITextField#>)
-//            }
-//        }
     }
 }

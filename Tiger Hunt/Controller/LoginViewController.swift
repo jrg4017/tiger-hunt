@@ -6,6 +6,7 @@
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import FirebaseAuth
 
@@ -17,13 +18,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
 
     @IBOutlet weak var loginButton: UIButton!
-    // MARK: Constants
-    let LOGIN_ERROR_TITLE: String = "Log In Error"
-    let LOGIN_ERROR_MSG: String = "Your email or password is inccorect. Please try again"
-    let ACCOUNT_NOT_ENABLED: String = "Your account is no longer active."
+    var user: User?
     
     private(set) lazy var textFieldArray: [UITextField] = { return self.setTextFieldArray() }()
-    let ANIMATION_DELAY: Double = 0.1
+    
     
     // MARK: - Lifeycle
     override func viewDidLoad() {
@@ -68,14 +66,15 @@ class LoginViewController: UIViewController {
                     var msg = ""
                     switch errCode {
                         case .errorCodeUserDisabled:
-                            msg = self.ACCOUNT_NOT_ENABLED
+                            msg = Constants.ACCOUNT_NOT_ENABLED
                         default:
-                            msg = self.LOGIN_ERROR_MSG
+                            msg = Constants.LOGIN_ERROR_MSG
                     }
                     
-                    self.loginAlert(title: self.LOGIN_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
+                    self.loginAlert(title: Constants.LOGIN_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
                 }
             } else {
+                self.writeUID((user?.uid)!)
                 self.switchRootController(storyboardName: "Main")
             }
         }
@@ -94,7 +93,7 @@ class LoginViewController: UIViewController {
 
         for textField in textFieldArray {
             self.slideView(textField, direction: "right", delayStart: delay)
-            delay += self.ANIMATION_DELAY
+            delay += Constants.ANIMATION_DELAY
         }
 
         self.slideView(self.loginButton, direction: "right", delayStart: delay)
