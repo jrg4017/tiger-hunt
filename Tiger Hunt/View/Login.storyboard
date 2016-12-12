@@ -37,14 +37,14 @@
                                 <frame key="frameInset" minX="60" minY="85" width="255" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-ja-O3k">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-ja-O3k">
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Qcs-Gv-kld"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cRq-A8-9AN">
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,10 +89,10 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="emailTextField" destination="0kK-ja-O3k" id="VYY-gL-TnH"/>
                         <outlet property="loginButton" destination="Mgp-Zr-Zqw" id="MnC-yx-cuc"/>
                         <outlet property="logoImageView" destination="tTg-X4-pw3" id="wzH-Ap-SwZ"/>
                         <outlet property="passwordTextField" destination="cRq-A8-9AN" id="5bZ-SD-8vr"/>
-                        <outlet property="usernameTextField" destination="0kK-ja-O3k" id="4kV-f1-AZx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdE-p2-rVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,6 +183,7 @@
                                     <color key="titleColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="registerUser:" destination="6Ig-TU-xxL" eventType="touchUpInside" id="KiZ-Vh-UFb"/>
                                     <segue destination="ofb-s3-lJL" kind="popoverPresentation" popoverAnchorView="0gj-ga-FYm" id="fMt-cO-PBK">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -370,8 +371,8 @@
         <!--Tutorial Page View Controller-->
         <scene sceneID="Ou1-NH-Bmx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uWV-qq-aSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="V86-x4-FhQ" customClass="TutorialPageViewController" customModule="Tiger_Hunt" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWV-qq-aSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-591" y="1542"/>
         </scene>

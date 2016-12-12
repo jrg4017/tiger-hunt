@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
     // MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
     
@@ -21,6 +21,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     private(set) lazy var textFieldArray: [UITextField] = { return self.setTextFieldArray() }()
     
+    let SIGNUP_ERROR_TITLE: String = "Registraton Error"
+    let INVALID_EMAIL_MSG: String = "Your password is invalid. Please try again."
+    let WEAK_PASSWORD_MSG: String = "You have entered a weak password. Please try again."
+    let GENERIC_ERROR_MSG: String = "Hmm, something went wrong. Please try again"
     let ANIMATION_DELAY: Double = 0.1
     
     // MARK: - Lifeycle
@@ -30,7 +34,7 @@ class SignUpViewController: UIViewController {
     }
     
     func setTextFieldArray() -> [UITextField] {
-        return [self.nameTextField, self.emailTextField, self.usernameTextField, self.passwordTextField, self.confirmPassTextField]
+        return [self.nameTextField, self.emailTextField, self.passwordTextField, self.confirmPassTextField]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +83,29 @@ class SignUpViewController: UIViewController {
         
         self.slideView(self.registerButton, direction: "left", delayStart: delay)
         
+    }
+    
+    @IBAction func registerUser(_ sender: UIButton) {
+        FIRAuth.auth()!.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { user, error in
+            if error != nil {
+                if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                    var msg = ""
+                    switch errCode {
+                        case .errorCodeWeakPassword:
+                            //msg = self.ACCOUNT_NOT_ENABLED
+                            msg = self.WEAK_PASSWORD_MSG
+                        case .errorCodeInvalidEmail:
+                            msg = self.INVALID_EMAIL_MSG
+                        default:
+                            msg = self.GENERIC_ERROR_MSG
+                        }
+                    
+                    self.loginAlert(title: self.SIGNUP_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
+                }
+            } else {
+                FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
+            }
+        }
     }
 
     // MARK: - Helper functions

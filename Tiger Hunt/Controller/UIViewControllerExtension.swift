@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 extension UIViewController {
     
@@ -27,10 +29,10 @@ extension UIViewController {
         textField.layer.masksToBounds = true
     }
     
-    func loginAlert(title: String,  msg: String, textField: UITextField ) {
+    func loginAlert(title: String,  msg: String, textField: UITextField? ) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler:
-            { action in textField.text = "" }
+            { action in if textField != nil { textField?.text = ""} }
         )
         
         alert.addAction(okAction)
@@ -93,5 +95,30 @@ extension UIViewController {
         UIView.animate(withDuration: 1.0, delay: delayStart, options: [], animations: {
             (direction == "left") ? (uiViewItem.center.x -= self.view.bounds.width) : (uiViewItem.center.x += self.view.bounds.width)
             }, completion: nil)
+    }
+    
+    func getUser() -> User {
+        var user: User = User()
+        
+        if let firUser = FIRAuth.auth()!.currentUser {
+            
+            let ref = FIRDatabase.database().reference()
+            
+            ref.child("users").child(firUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                let name = value?["name"] as? String ?? ""
+                let points = value?["totalPoints"] as? Int ?? 0
+                let date = value?["dateJoined"] as? Date ?? Date()
+                
+                user = User(name: name, email: firUser.email!, totalPoints: points, date: date)
+                print(user)
+            }) { (error) in
+                print("\n\n\nyo \(error.localizedDescription)")
+            }
+            
+        }
+        
+        return user
     }
 }

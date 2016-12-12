@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
-    var user: User!
+    
     let picker = UIImagePickerController()
     
     @IBOutlet weak var profilePicImageView: UIImageView!
@@ -18,6 +19,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var joinDateLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    
+    let SIGNOUT_ERROR_TITLE: String = "Sign Out Error"
+    let SIGNOUT_ERROR_MSG: String = " Hmm, something went wrong. Try again later."
+    
+    var user: User?
     
     @IBAction func uploadPhoto(_ sender: UIButton) {
         self.picker.allowsEditing = false
@@ -42,20 +48,20 @@ class ProfileViewController: UIViewController {
     }
     
     func logout(sender: UIBarButtonItem) {
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "user")
-        defaults.synchronize()
-        
+        try! FIRAuth.auth()?.signOut()
         self.switchRootController(storyboardName: "Login")
     }
     
     func setData() {
-        self.nameLabel.text = self.user.getName()
-        self.usernameLabel.text = "@\(self.user.getUsername())"
-        self.emailLabel.text = self.user.getEmail()
-        self.scoreLabel.text = " points"
+        self.user = self.getUser()
+        
+        self.nameLabel.text = self.user?.getName()
+        self.usernameLabel.text = "\(self.user?.getDateJoined())"
+        self.emailLabel.text = self.user?.getEmail()
+        self.scoreLabel.text = "\(self.user?.getTotalPoints()) points"
         
         self.profilePicImageView.image = UIImage(named: "not-submitted.png")
+        
         self.profilePicImageView.maskCircle(view: self.view)
     }
 }

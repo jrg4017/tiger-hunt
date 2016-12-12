@@ -7,4 +7,6 @@ target 'Tiger Hunt' do
 
   # Pods for Tiger Hunt
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 end

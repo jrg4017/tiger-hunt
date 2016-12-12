@@ -7,22 +7,23 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logoImageView: UIImageView!
-    var user: User!
+
     @IBOutlet weak var loginButton: UIButton!
     // MARK: Constants
     let LOGIN_ERROR_TITLE: String = "Log In Error"
-    let LOGIN_ERROR_MSG: String = "Your username or password is inccorect. Please try again"
+    let LOGIN_ERROR_MSG: String = "Your email or password is inccorect. Please try again"
+    let ACCOUNT_NOT_ENABLED: String = "Your account is no longer active."
     
     private(set) lazy var textFieldArray: [UITextField] = { return self.setTextFieldArray() }()
     let ANIMATION_DELAY: Double = 0.1
-
     
     // MARK: - Lifeycle
     override func viewDidLoad() {
@@ -31,14 +32,14 @@ class LoginViewController: UIViewController {
     }
     
     func setTextFieldArray() -> [UITextField] {
-        return [self.usernameTextField, self.passwordTextField]
+        return [self.emailTextField, self.passwordTextField]
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         self.hideTextFields()
         
-        self.customBottomBorder(self.usernameTextField!)
+        self.customBottomBorder(self.emailTextField!)
         self.customBottomBorder(self.passwordTextField!)
         
         animateLoginScreen()
@@ -53,29 +54,31 @@ class LoginViewController: UIViewController {
     
     func hideTextFields() {
         let width = self.view.bounds.width
-        self.usernameTextField.center.x -= width
+        self.emailTextField.center.x -= width
         self.passwordTextField.center.x -= width
         self.loginButton.center.x -= width
     }
     
     // MARK: - IBAction
     @IBAction func loginUser(_ sender: UIButton) {
-        if self.usernameTextField.text == "" || passwordTextField.text == "" {
-            self.loginAlert(title: self.LOGIN_ERROR_TITLE, msg: self.LOGIN_ERROR_MSG, textField: self.passwordTextField! )
-        } else {
-            // TODO:  implement get user info here
-            self.user = User(name: "Julie Gabler", email: "jrgabler@gmail.com", username: self.usernameTextField.text!, totalPoints: 10)
-            self.writeSession()
-            self.switchRootController(storyboardName: "Main")
+        FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+            
+            if error != nil {
+                if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                    var msg = ""
+                    switch errCode {
+                        case .errorCodeUserDisabled:
+                            msg = self.ACCOUNT_NOT_ENABLED
+                        default:
+                            msg = self.LOGIN_ERROR_MSG
+                    }
+                    
+                    self.loginAlert(title: self.LOGIN_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
+                }
+            } else {
+                self.switchRootController(storyboardName: "Main")
+            }
         }
-    }
-    
-    func writeSession() {
-        let userData = NSKeyedArchiver.archivedData(withRootObject: user)
-        
-        let defaults = UserDefaults.standard
-        defaults.set(userData, forKey: "user")
-        defaults.synchronize()
     }
     
     func animateLoginScreen() {

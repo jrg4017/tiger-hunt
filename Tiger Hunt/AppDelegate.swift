@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 import CoreLocation
 
 @UIApplicationMain
@@ -15,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var loginSession: String = ""
-    var user: User?
+//    var user: User?
     var tasks: [Task] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -25,11 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.loadTasks()
         
         //if the user isn't logged in set the rootcontroller the Login storyboard
-        if !isUserLoggedIn() {
-            self.window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
-        } else {
-            self.setViewControllerTaskLists()
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user == nil {
+                self.window?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+            }
         }
+
+        self.setViewControllerTaskLists()
+        
+        FIRDatabase.database().persistenceEnabled = true
         
         return true
     }
@@ -93,32 +99,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navVC = tabBarController!.viewControllers![1] as! UINavigationController
         let taskVC = navVC.viewControllers[0] as! TaskTableViewController
         
-        let nav2VC = tabBarController!.viewControllers?[3] as! UINavigationController
-        let profileVC = nav2VC.viewControllers[0] as! ProfileViewController
-        profileVC.user = self.user
-        
         let taskList = Tasks()
         taskList.taskList = tasks
         mapVC.taskList = taskList
         taskVC.taskList = taskList
     }
 
-    func isUserLoggedIn() -> Bool {
-        //let preferences = UserDefaults.standard
-        //if preferences.object(forKey: "session") != nil {
-            //loginSession = preferences.object(forKey: "session") as! String
-            //check_session()
-            //return true
-        //}
-            let userData = UserDefaults.standard.object(forKey: "user") as? Data
-            
-            if let userData = userData {
-                user = (NSKeyedUnarchiver.unarchiveObject(with: userData) as? User)!
-                return true
-            }
-        
-        return false
-    }
     
     func switchRootController() {
         self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
@@ -128,8 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.makeKeyAndVisible()
     }
-    
-    //TODO: grab user info 
     
 }
 
