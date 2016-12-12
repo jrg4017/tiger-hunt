@@ -17,13 +17,6 @@ class TutorialPageViewController: UIPageViewController {
     
     weak var tutorialDelegate: TutorialPageViewControllerDelegate?
     
-    //to programatically set transition style to scroll, must be done at initialization [;
-//    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
-//        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
-//    
     
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)

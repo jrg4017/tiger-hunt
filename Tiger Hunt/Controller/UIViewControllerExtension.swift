@@ -82,4 +82,16 @@ extension UIViewController {
         appDelegate.window?.rootViewController = UIStoryboard(name: storyboardName, bundle: nil).instantiateInitialViewController()
         appDelegate.window?.makeKeyAndVisible()
     }
+    
+    func textFieldIsHidden(_ isHidden: Bool, _ textFieldArray: [UITextField]) {
+        for textField in textFieldArray {
+            textField.isHidden = isHidden
+        }
+    }
+
+    func slideView(_ uiViewItem: UIView, direction: String, delayStart: Double) {
+        UIView.animate(withDuration: 1.0, delay: delayStart, options: [], animations: {
+            (direction == "left") ? (uiViewItem.center.x -= self.view.bounds.width) : (uiViewItem.center.x += self.view.bounds.width)
+            }, completion: nil)
+    }
 }

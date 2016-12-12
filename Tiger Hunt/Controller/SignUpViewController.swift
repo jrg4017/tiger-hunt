@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var logoImageView: UIImageView!
-    var textFieldArray: [UITextField] = []
+    private(set) lazy var textFieldArray: [UITextField] = { return self.setTextFieldArray() }()
     
     let ANIMATION_DELAY: Double = 0.1
     
@@ -27,20 +27,31 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.textFieldArray = [self.nameTextField, self.emailTextField, self.usernameTextField, self.passwordTextField, self.confirmPassTextField]
-        
+    }
+    
+    func setTextFieldArray() -> [UITextField] {
+        return [self.nameTextField, self.emailTextField, self.usernameTextField, self.passwordTextField, self.confirmPassTextField]
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        for textField in self.textFieldArray {
-            textField.alpha = 0
-        }
-        
-        self.logoImageView.alpha = 0.0
-        self.registerButton.alpha = 0.0
+        //hide before animating
+        self.logoImageView.isHidden = true
+        self.textFieldIsHidden(true, self.textFieldArray)
+        self.registerButton.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        //show so we can see the view come in
+        self.logoImageView.isHidden = true
+        self.textFieldIsHidden(false, self.textFieldArray)
+        self.registerButton.isHidden = false
+        
+        for textField in self.textFieldArray {
+            textField.center.x += view.bounds.width
+        }
+        
+        self.registerButton.center.x += view.bounds.width
+        
         for textField in self.textFieldArray {
             self.customBottomBorder(textField)
         }
@@ -54,21 +65,17 @@ class SignUpViewController: UIViewController {
                 self.logoImageView.transform = scale
             }, completion: nil)
         
-        var delay = 1.3
-        for textField in self.textFieldArray {
-            UIView.animate(withDuration: 1.0, delay: delay, options: [], animations: {
-                textField.center.x -= self.view.bounds.width
-            }, completion: nil)
+        var delay = 1.2
+        
+        self.slideView(self.logoImageView, direction: "left", delayStart: delay)
+        delay += ANIMATION_DELAY
+        
+        for textField in textFieldArray {
+            self.slideView(textField, direction: "left", delayStart: delay)
             delay += ANIMATION_DELAY
         }
         
-        UIView.animate(withDuration: 1.0, delay: (delay + ANIMATION_DELAY), options: [], animations: {
-            self.registerButton.center.x -= self.view.bounds.width
-        }, completion: nil)
-
-        UIView.animate(withDuration: 3.0, delay: 1.5, options: .curveEaseIn, animations: {
-            self.registerButton.alpha = 1.0
-            }, completion: nil)
+        self.slideView(self.registerButton, direction: "left", delayStart: delay)
         
     }
 

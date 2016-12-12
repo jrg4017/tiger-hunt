@@ -20,10 +20,18 @@ class LoginViewController: UIViewController {
     let LOGIN_ERROR_TITLE: String = "Log In Error"
     let LOGIN_ERROR_MSG: String = "Your username or password is inccorect. Please try again"
     
+    private(set) lazy var textFieldArray: [UITextField] = { return self.setTextFieldArray() }()
+    let ANIMATION_DELAY: Double = 0.1
+
     
-    // MARK: - Lifecycle
+    // MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    func setTextFieldArray() -> [UITextField] {
+        return [self.usernameTextField, self.passwordTextField]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +46,9 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //self.hideTextFields()
+        
+        self.textFieldIsHidden(true, self.textFieldArray)
+        self.loginButton.isHidden = true
     }
     
     func hideTextFields() {
@@ -69,22 +79,21 @@ class LoginViewController: UIViewController {
     }
     
     func animateLoginScreen() {
-        UIView.animate(withDuration: 1.2, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
+        self.textFieldIsHidden(false, self.textFieldArray)
+        self.loginButton.isHidden = false
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
                 let scale = CGAffineTransform(scaleX: 0.75, y: 0.75)
                 self.logoImageView.transform = scale
             }, completion: nil)
         
-        UIView.animate(withDuration: 1.0, delay: 1.2, options: [], animations: {
-                self.usernameTextField.center.x += self.view.bounds.width
-            }, completion: nil)
-        
-        UIView.animate(withDuration: 1.0, delay: 1.3, options: [], animations: {
-                self.passwordTextField.center.x += self.view.bounds.width
-            }, completion: nil)
-        
-        UIView.animate(withDuration: 1.0, delay: 1.4, options: [], animations: {
-                self.loginButton.center.x += self.view.bounds.width
-            }, completion: nil)
-        
+        var delay = 1.0
+
+        for textField in textFieldArray {
+            self.slideView(textField, direction: "right", delayStart: delay)
+            delay += self.ANIMATION_DELAY
+        }
+
+        self.slideView(self.loginButton, direction: "right", delayStart: delay)
     }
 }
