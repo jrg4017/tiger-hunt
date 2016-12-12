@@ -42,16 +42,18 @@ class SignUpViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //show so we can see the view come in
-        self.logoImageView.isHidden = true
+        self.logoImageView.isHidden = false
         self.textFieldIsHidden(false, self.textFieldArray)
         self.registerButton.isHidden = false
         
+        let width = self.view.bounds.width
+        
         for textField in self.textFieldArray {
-            textField.center.x += view.bounds.width
+            textField.center.x += width
         }
-        
-        self.registerButton.center.x += view.bounds.width
-        
+        self.logoImageView.center.x += width
+        self.registerButton.center.x += width
+         
         for textField in self.textFieldArray {
             self.customBottomBorder(textField)
         }
@@ -60,12 +62,12 @@ class SignUpViewController: UIViewController {
     }
     
     func animateSignUpScreen() {
-        UIView.animate(withDuration: 1.2, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
                 let scale = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.logoImageView.transform = scale
             }, completion: nil)
         
-        var delay = 1.2
+        var delay = 1.0
         
         self.slideView(self.logoImageView, direction: "left", delayStart: delay)
         delay += ANIMATION_DELAY

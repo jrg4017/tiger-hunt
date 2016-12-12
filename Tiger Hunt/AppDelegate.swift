@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import CoreLocation
 
 @UIApplicationMain
@@ -18,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tasks: [Task] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-  
+        FIRApp.configure()
+        
         //load in the user and task data
         self.loadTasks()
         
