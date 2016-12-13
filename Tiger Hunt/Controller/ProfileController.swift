@@ -2,7 +2,6 @@
 //  ProfileController.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/11/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -10,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class ProfileViewController: UIViewController {
-    
+    // MARK: - PROPERTIES
     let picker = UIImagePickerController()
     
     @IBOutlet weak var profilePicImageView: UIImageView!
@@ -20,6 +19,7 @@ class ProfileViewController: UIViewController {
     
     var user: User?
     
+    // MARK: - IBACTION
     @IBAction func uploadPhoto(_ sender: UIButton) {
         self.picker.allowsEditing = false
         self.picker.sourceType = .photoLibrary
@@ -28,20 +28,28 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func deleteUser(_ sender: AnyObject) {
-        DataService.dataService.removeUser(self.user)
-        FIRAuth.auth()?.currentUser
-        user?.ise
+        DataService.dataService.removeUser(self.user!)
+        FIRAuth.auth()?.currentUser?.delete(completion: {action in
+            self.switchRootController(storyboardName: "Login")
+        })
     }
     
+    // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let uid = "\(self.user?.getUID())"
+        
+        StorageService.storageService.downLoadPhoto(uid: uid, photoID: uid, imageView: self.profilePicImageView, view: self.view)
         
         setData()
         setpLogoutButton()
         
         self.picker.delegate = self
     }
+
     
+    // MARK: - HELPER FUNCS
     func setpLogoutButton() {
         let rightBtn = UIBarButtonItem(image: UIImage(named: "complete-task"), style: .plain, target: self, action: #selector(logout(sender:)))
         
@@ -65,9 +73,6 @@ class ProfileViewController: UIViewController {
         self.emailLabel.text = self.user?.getEmail()
         self.scoreLabel.text = "\(self.user?.getTotalPoints()) points"
         
-        self.profilePicImageView.image = UIImage(named: "not-submitted.png")
-        
-        self.profilePicImageView.maskCircle(view: self.view)
     }
     
     func loadUser() {

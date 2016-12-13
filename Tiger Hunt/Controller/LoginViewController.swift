@@ -2,7 +2,6 @@
 //  LoginViewController.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/9/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -19,18 +18,17 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
     var user: User?
+    @IBOutlet var forgotPasswordButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     
     private(set) lazy var textFieldArray: [UITextField] = { return self.setTextFieldArray() }()
     
+    private(set) lazy var buttonArray: [UIButton] = { return self.setButtonArray() }()
     
     // MARK: - Lifeycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    func setTextFieldArray() -> [UITextField] {
-        return [self.emailTextField, self.passwordTextField]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,14 +45,16 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(true)
         
         self.textFieldIsHidden(true, self.textFieldArray)
-        self.loginButton.isHidden = true
+        self.setButtonsHidden(true, self.buttonArray)
     }
     
-    func hideTextFields() {
-        let width = self.view.bounds.width
-        self.emailTextField.center.x -= width
-        self.passwordTextField.center.x -= width
-        self.loginButton.center.x -= width
+    // MARK: - SET UIVIEW ELEMENTS
+    func setTextFieldArray() -> [UITextField] {
+        return [self.emailTextField, self.passwordTextField]
+    }
+    
+    func setButtonArray() -> [UIButton] {
+        return [self.loginButton, self.forgotPasswordButton, self.registerButton]
     }
     
     // MARK: - IBAction
@@ -65,10 +65,10 @@ class LoginViewController: UIViewController {
                 if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                     var msg = ""
                     switch errCode {
-                        case .errorCodeUserDisabled:
-                            msg = Constants.ACCOUNT_NOT_ENABLED
-                        default:
-                            msg = Constants.LOGIN_ERROR_MSG
+                    case .errorCodeUserDisabled:
+                        msg = Constants.ACCOUNT_NOT_ENABLED
+                    default:
+                        msg = Constants.LOGIN_ERROR_MSG
                     }
                     
                     self.loginAlert(title: Constants.LOGIN_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
@@ -80,22 +80,36 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - HELPER FUNCS FOR ANIMATION
+    func hideTextFields() {
+        let width = self.view.bounds.width
+        self.emailTextField.center.x -= width
+        self.passwordTextField.center.x -= width
+        self.loginButton.center.x -= width
+        self.registerButton.center.x -= width
+        self.forgotPasswordButton.center.x -= width
+    }
+    
+    
     func animateLoginScreen() {
         self.textFieldIsHidden(false, self.textFieldArray)
-        self.loginButton.isHidden = false
+        self.setButtonsHidden(false, self.buttonArray)
         
-        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
                 let scale = CGAffineTransform(scaleX: 0.75, y: 0.75)
                 self.logoImageView.transform = scale
             }, completion: nil)
         
         var delay = 1.0
 
-        for textField in textFieldArray {
+        for textField in self.textFieldArray {
             self.slideView(textField, direction: "right", delayStart: delay)
             delay += Constants.ANIMATION_DELAY
         }
-
-        self.slideView(self.loginButton, direction: "right", delayStart: delay)
+        
+        for button in self.buttonArray {
+            self.slideView(button, direction: "right", delayStart: delay)
+            delay += Constants.ANIMATION_DELAY
+        }
     }
 }

@@ -2,13 +2,13 @@
 //  ImageViewExtension.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/11/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
 import UIKit
 
 extension UIImageView {
+    //MARK: - MASK CIRCLE FUNC
     public func maskCircle(view: UIView) {
         view.layoutIfNeeded()
         

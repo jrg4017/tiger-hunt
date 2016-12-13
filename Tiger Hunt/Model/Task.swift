@@ -2,7 +2,6 @@
 //  Task.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/9/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -20,6 +19,7 @@ class Task: NSObject, NSCoding, MKAnnotation {
     private var hint: String = ""
     private var location: CLLocation?
     private var isActivityTask: Bool = false
+    private var completedImageURL: String = ""
     
     // MARK: MkAnnotation properties
     @objc var coordinate: CLLocationCoordinate2D {
@@ -46,18 +46,19 @@ class Task: NSObject, NSCoding, MKAnnotation {
     }
     
     // MARK: - Initializers
-    init(id: Int, taskName: String, locationName: String, points: Int, hint: String, location: CLLocation?) {
+    init(id: Int, taskName: String, locationName: String, points: Int, hint: String, imageURL: String, location: CLLocation?) {
         self.id = id
         self.taskName = taskName
         self.locationName = locationName
         self.points = points
         self.hint = hint
         self.location = location
+        self.completedImageURL = imageURL
         
         super.init()
     }
     
-    init(id: Int, taskName: String, locationName: String, points: Int, hint: String) {
+    init(id: Int, taskName: String, locationName: String, points: Int, hint: String, imageURL: String) {
         self.id = id
         self.taskName = taskName
         self.locationName = locationName
@@ -65,27 +66,30 @@ class Task: NSObject, NSCoding, MKAnnotation {
         self.hint = hint
         self.location = nil
         self.isActivityTask = true
+        self.completedImageURL = imageURL
         
         super.init()
     }
     
     override convenience init() {
-        self.init(id: 0, taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is", location: nil)
+        self.init(id: 0, taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is", imageURL: "",location: nil)
     }
     
     convenience init(isActivity: Bool) {
-        self.init(id: 0, taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is")
+        self.init(id: 0, taskName: "Unknown", locationName: "Unknown", points: 0, hint: "No idea where this is", imageURL: "")
     }
     
     // MARK: NSCoding intializers
     required init(coder aDecoder: NSCoder) {
         self.id = aDecoder.decodeObject(forKey: "taskId") as! Int
+        self.completedImageURL = aDecoder.decodeObject(forKey: "imageURL") as! String
         
         super.init()
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "taskId")
+        aCoder.encode(self.completedImageURL, forKey: "imageURL")
     }
     
     // MARK: - Mutators and Accessors
@@ -100,4 +104,6 @@ class Task: NSObject, NSCoding, MKAnnotation {
     func getHint() -> String { return self.hint }
     func setIsActivity(_ isActivityTask: Bool) { self.isActivityTask = isActivityTask }
     func isActivity() -> Bool { return self.isActivityTask }
+    func setCompletedImageURL(_ imageLink: String) { self.completedImageURL = imageLink }
+    func getCompletedImageURL() -> String { return self.completedImageURL }
 }

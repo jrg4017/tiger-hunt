@@ -2,7 +2,6 @@
 //  DataService.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/12/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -12,8 +11,10 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class DataService {
+    //MARK: - STATIC SELF
     static let dataService = DataService()
     
+    //MARK: - PROPERTIES
     private var _BASE_REF = FIRDatabase.database().reference(fromURL: Constants.FIR_BASE_URL)
     
     var REF: FIRDatabaseReference {
@@ -33,6 +34,7 @@ class DataService {
         return _BASE_REF.child("completedTasks")
     }
     
+    // MARK: - DATABASE FUNC
     func persistUser(_ user: User) {
         let dict: NSDictionary = [
             "name": user.getName(),
@@ -41,19 +43,6 @@ class DataService {
         ]
 
         self.USERS_REF.child(user.getUID()).setValue(dict)
-    }
-    
-    func updateTaskList(uid: String, _ newTask: Task) {
-        COMPLETED_TASKS_REF.child(uid).child("tasks").observe(.value, with: { (snapshot) in
-            // Get user value
-            var completedTasks = snapshot.value as! [String]
-            completedTasks.append(("\(newTask.getID())"))
-            self.COMPLETED_TASKS_REF.child(uid).child("tasks").child(uid).setValue(completedTasks as NSArray)
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        
     }
     
     func removeUser(_ user: User) {

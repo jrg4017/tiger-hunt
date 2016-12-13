@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  Tiger Hunt
 //
-//  Created by student on 12/6/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -14,7 +13,7 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    // MARK: - PROPERTIES
     var window: UIWindow?
     var loginSession: String = ""
     var user: User?
@@ -60,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
+    // MARK: - HELPER FUNC
     func loadTasks() {
         if let path = Bundle.main.path(forResource: "tasks", ofType: "plist") {
             let tempDict = NSDictionary(contentsOfFile: path)
@@ -75,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let points = (dict["points"]! as! NSString).integerValue
                 let hint = dict["hint"]! as! String
                 let isActivity = (dict["isActivity"]! as! NSString).boolValue
+                let imageURL = dict["imageURL"] as! String
                 
                 //if it is not an activity, it's an mkannotation/pin
                 if !isActivity {
@@ -82,9 +82,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let longitude = (dict["longitude"]! as! NSString).doubleValue
                     let location = CLLocation(latitude: latitude, longitude: longitude)
                 
-                    t = Task(id: id, taskName: taskName, locationName: locationName, points: points, hint: hint, location: location)
+                    t = Task(id: id, taskName: taskName, locationName: locationName, points: points, hint: hint, imageURL: imageURL, location: location)
                 } else {
-                    t = Task(id: id, taskName: taskName, locationName: locationName, points: points, hint: hint)
+                    t = Task(id: id, taskName: taskName, locationName: locationName, points: points, hint: hint, imageURL: imageURL)
                 }
                 
                 tasks.append(t)
@@ -92,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    //called when switching back to main storyboard
     func setViewControllerTaskLists() {
         let tabBarController = self.window?.rootViewController as? UITabBarController
         let mapVC = tabBarController!.viewControllers![0] as! MapViewController

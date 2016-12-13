@@ -2,7 +2,6 @@
 //  TaskTableViewController.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/10/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -105,6 +104,7 @@ class TaskTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - PREPARE SEQUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextScene = segue.destination as? TaskDetailViewController
         let indexPath = self.tableView.indexPathForSelectedRow
@@ -116,6 +116,7 @@ class TaskTableViewController: UITableViewController {
         nextScene?.user = self.user
     }
     
+    // MARK: - HELPER FUNC
     func loadTasksActivites(_ isCompletedTab: Bool) {
         //reset to prevent duplicates
         self.tasks = []
@@ -167,6 +168,5 @@ class TaskTableViewController: UITableViewController {
         }
 
     }
-    
 }
 

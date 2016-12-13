@@ -2,7 +2,6 @@
 //  SignUpViewController.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/9/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -29,10 +28,6 @@ class SignUpViewController: UIViewController {
         
     }
     
-    func setTextFieldArray() -> [UITextField] {
-        return [self.nameTextField, self.emailTextField, self.passwordTextField, self.confirmPassTextField]
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         //hide before animating
         self.logoImageView.isHidden = true
@@ -53,7 +48,7 @@ class SignUpViewController: UIViewController {
         }
         self.logoImageView.center.x += width
         self.registerButton.center.x += width
-         
+        
         for textField in self.textFieldArray {
             self.customBottomBorder(textField)
         }
@@ -61,6 +56,12 @@ class SignUpViewController: UIViewController {
         animateSignUpScreen()
     }
     
+    // MARK: - SET UIVIEW ELEMENT ARRAYS
+    func setTextFieldArray() -> [UITextField] {
+        return [self.nameTextField, self.emailTextField, self.passwordTextField, self.confirmPassTextField]
+    }
+    
+    // MARK: - HELPER FUNCS FOR ANIMATION
     func animateSignUpScreen() {
         UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .beginFromCurrentState, animations: {
                 let scale = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -81,6 +82,7 @@ class SignUpViewController: UIViewController {
         
     }
     
+    // MARK: - IBACTION
     @IBAction func registerUser(_ sender: UIButton) {
         FIRAuth.auth()!.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { user, error in
             if error != nil {

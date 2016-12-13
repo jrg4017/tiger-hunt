@@ -2,7 +2,6 @@
 //  MkMapViewDelegate.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/9/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -55,7 +54,6 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         //set custom view
-        // TODO: set active and non active marker
         if let annotationView = annotationView {
             annotationView.canShowCallout = true
             annotationView.image = UIImage(named: "tiger-marker-active")

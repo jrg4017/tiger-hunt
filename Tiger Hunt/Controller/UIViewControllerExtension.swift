@@ -2,7 +2,6 @@
 //  UIViewControllerExtension.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/9/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -11,8 +10,6 @@ import FirebaseAuth
 import FirebaseDatabase
 
 extension UIViewController {
-    
-    
     // MARK: - Custom border func
     func customBottomBorder(_ textField: UITextField) {
         let border = CALayer()
@@ -29,6 +26,7 @@ extension UIViewController {
         textField.layer.masksToBounds = true
     }
     
+    // MARK: - LOGIN ALERT FUNC
     func loginAlert(title: String,  msg: String, textField: UITextField? ) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler:
@@ -39,26 +37,31 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - COMPLETED TASKS FUNCS
     func insertCompletedTask(task: Task) {
-        var completedTasks = fetchCompletedTasks()
+        var completedTasks = self.fetchCompletedTasks()
+        let id = "\(task.getID())"
         
-        if !(completedTasks.contains(task.getTaskName())) {
-            completedTasks.append(task.getTaskName())
-            
-            let taskData = NSKeyedArchiver.archivedData(withRootObject: completedTasks)
-            
-            let defaults = UserDefaults.standard
-            defaults.set(taskData, forKey: "completedTasks")
-            defaults.synchronize()
+        //if key exists for whatever reason, remove it and update
+        if let index = completedTasks.index(forKey: id) {
+            completedTasks.remove(at: index)
         }
+        
+        completedTasks[id] = task.getCompletedImageURL()
+        
+        let taskData = NSKeyedArchiver.archivedData(withRootObject: completedTasks)
+            
+        let defaults = UserDefaults.standard
+        defaults.set(taskData, forKey: "completedTasks")
+        defaults.synchronize()
     }
     
-    func fetchCompletedTasks() -> [String] {
+    func fetchCompletedTasks() -> [String:String] {
         let taskData = UserDefaults.standard.object(forKey: "completedTasks") as? Data
-        var completedTasks: [String] = []
+        var completedTasks: [String:String] = [:]
         
         if let taskData = taskData {
-            completedTasks = (NSKeyedUnarchiver.unarchiveObject(with: taskData) as? [String])!
+            completedTasks = ((NSKeyedUnarchiver.unarchiveObject(with: taskData)) as! [String:String]!)
         }
         
         return completedTasks
@@ -66,28 +69,36 @@ extension UIViewController {
     
     func fetchTaskArray(_ allTasksArr: [Task]) -> [Task] {
         var completedTasks: [Task] = []
-        let stringArr = fetchCompletedTasks()
+        let dictionary = fetchCompletedTasks()
         
-        for t in stringArr {
-            for ta in allTasksArr {
-                if t == ta.getTaskName() {
-                    completedTasks.append(ta)
-                }
+        for t in allTasksArr {
+            let id = "\(t.getID())"
+            if (dictionary.index(forKey: id) != nil) {
+                t.setCompletedImageURL(dictionary[id]!)
+                completedTasks.append(t)
             }
         }
         
         return completedTasks
     }
     
+    // MARK: - SWITCH ROOT CONTROLLER
     func switchRootController(storyboardName: String) {
         let appDelegate = UIApplication.shared.delegate! as! AppDelegate
         appDelegate.window?.rootViewController = UIStoryboard(name: storyboardName, bundle: nil).instantiateInitialViewController()
         appDelegate.window?.makeKeyAndVisible()
     }
     
+    // MARK: ANIMATION FUNCS
     func textFieldIsHidden(_ isHidden: Bool, _ textFieldArray: [UITextField]) {
         for textField in textFieldArray {
             textField.isHidden = isHidden
+        }
+    }
+    
+    func setButtonsHidden(_ isHidden: Bool, _ buttonArray: [UIButton]) {
+        for button in buttonArray {
+            button.isHidden = isHidden
         }
     }
 
@@ -97,6 +108,7 @@ extension UIViewController {
             }, completion: nil)
     }
     
+    // MARK: - WRITING AND LOADING USER
     func writeUID(_ uid: String) {
         let defaults = UserDefaults.standard
         defaults.setValue(uid, forKey: "uid")

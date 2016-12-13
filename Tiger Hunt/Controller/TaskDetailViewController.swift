@@ -2,7 +2,6 @@
 //  TaskDetailViewController.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/10/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -22,25 +21,12 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var showOnMapButton: UIButton!
     @IBOutlet weak var submitPhotoButton: UIButton!
     
+    // MARK: - IBACTION
     @IBAction func submitPhoto(_ sender: UIButton) {
         self.picker.allowsEditing = false
         self.picker.sourceType = .photoLibrary
         self.picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(self.picker, animated: true, completion: { action in self.markComplete() })
-    }
-        
-    func markComplete() {
-        self.insertCompletedTask(task: self.task)
-        self.isComplete = true
-        UIView.animate(withDuration: 1.0, animations: {
-            self.submitPhotoButton.alpha = 0.0
-            }) { (true) in
-                self.submitPhotoButton.isHidden = true
-        }
-        
-        let points = (self.user?.getTotalPoints())! + self.task.getPoints()
-        self.user?.setTotalPoints(points)
-        DataService.dataService.persistUser(self.user!)
     }
     
     @IBAction func showOnMap(_ sender: UIButton) {
@@ -51,6 +37,11 @@ class TaskDetailViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let uid = "\(self.user?.getUID())"
+        let photoID = "\(self.task.getID())"
+        
+        StorageService.storageService.downLoadPhoto(uid: uid, photoID: photoID, imageView: self.taskImageView, view: self.view)
         
         setData()
         
@@ -75,6 +66,21 @@ class TaskDetailViewController: UIViewController {
         
         self.submitPhotoButton.isHidden = self.isComplete
         self.showOnMapButton.isHidden = self.task.isActivity()
+    }
+    
+    // MARK: - HELPER FUNCS
+    func markComplete() {
+        self.insertCompletedTask(task: self.task)
+        self.isComplete = true
+        UIView.animate(withDuration: 1.0, animations: {
+            self.submitPhotoButton.alpha = 0.0
+        }) { (true) in
+            self.submitPhotoButton.isHidden = true
+        }
+        
+        let points = (self.user?.getTotalPoints())! + self.task.getPoints()
+        self.user?.setTotalPoints(points)
+        DataService.dataService.persistUser(self.user!)
     }
     
 }

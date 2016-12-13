@@ -2,7 +2,6 @@
 //  TableViewExtension.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/10/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -10,6 +9,7 @@ import UIKit
 import CoreLocation
 
 extension UITableViewController {
+    // MARK: - HELPER FUNC
     //gets the distance in miles from the current location
     func getDistance(_ coordinates: CLLocationCoordinate2D) -> Double {
         let mapVC = self.tabBarController?.viewControllers?[0] as! MapViewController

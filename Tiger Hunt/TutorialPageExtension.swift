@@ -2,14 +2,13 @@
 //  TutorialPageExtension.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/11/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
 import UIKit
 
 extension TutorialPageViewController: UIPageViewControllerDataSource {
-    
+    // MARK: - UIPAGEVIEWDATASOURCE FUNCS
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = self.tutorialViewControllers.index(of: viewController) else { return nil }
         

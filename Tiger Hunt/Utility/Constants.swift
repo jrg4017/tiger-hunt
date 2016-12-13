@@ -2,7 +2,6 @@
 //  Constants.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/12/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -11,8 +10,9 @@ import UIKit
 import CoreLocation
 
 struct Constants {
-    // MARK: - Firebase Database url
+    // MARK: - Firebase Constants
     static let FIR_BASE_URL = "https://tiger-hunt-firebase.firebaseio.com/"
+    static let FIR_STORAGE_URL = "gs://tiger-hunt-firebase.appspot.com"
     
     // MARK: - Login properties
     static let LOGIN_ERROR_TITLE: String = "Log In Error"
@@ -23,7 +23,8 @@ struct Constants {
     static let WEAK_PASSWORD_MSG: String = "You have entered a weak password. Please try again."
     static let GENERIC_ERROR_MSG: String = "Hmm, something went wrong. Please try again"
     static let SIGNOUT_ERROR_TITLE: String = "Sign Out Error"
-    static let SIGNOUT_ERROR_MSG: String = " Hmm, something went wrong. Try again later."
+    static let PASSWORD_RESET_TITLE = "Password Reset"
+    static let PASSWORD_RESET_MSG = "Check your email! We've sent you a link."
     static let ANIMATION_DELAY: Double = 0.1
     
     // MARK: - Mapview Properties

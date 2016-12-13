@@ -2,7 +2,6 @@
 //  TaskDetailExtension.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/11/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
@@ -17,6 +16,17 @@ extension TaskDetailViewController: UIImagePickerControllerDelegate, UINavigatio
         self.taskImageView.maskCircle(view: self.view)
         
         dismiss(animated:true, completion: nil)
+        
+        var data = NSData()
+        data = UIImageJPEGRepresentation(self.taskImageView.image!, 0.8)! as NSData
+        // set upload path
+        let uid: String = (self.user?.getUID())!
+        let filePath = "\(uid)/\("\(self.task.getID()).jpg")"
+        
+        let downloadURL = StorageService.storageService.uploadPhoto(filePath: filePath, data: data)
+        self.task.setCompletedImageURL(downloadURL)
+        
+        self.insertCompletedTask(task: self.task)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

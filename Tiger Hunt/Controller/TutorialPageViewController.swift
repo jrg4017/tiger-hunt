@@ -2,19 +2,20 @@
 //  TutorialPageViewController.swift
 //  Tiger Hunt
 //
-//  Created by Julianna Gabler on 12/11/16.
 //  Copyright © 2016 Julianna_Gabler. All rights reserved.
 //
 
 import UIKit
 
 class TutorialPageViewController: UIPageViewController {
+    // MARK: - PROPERTIES
     private(set) lazy var tutorialViewControllers: [UIViewController] = {
         return [self.newTutorialViewController("Marker"),
                 self.newTutorialViewController("TaskList"),
                 self.newTutorialViewController("PhotoSubmission")]
     }()
 
+    // MARK: - INIT
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
     }
@@ -23,6 +24,7 @@ class TutorialPageViewController: UIPageViewController {
         super.init(coder: coder)
     }
     
+    // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,7 @@ class TutorialPageViewController: UIPageViewController {
         
     }
     
+    //MARK: - HELPER FUNC
     private func newTutorialViewController(_ tutorial: String) -> UIViewController {
         return UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "\(tutorial)TutorialVC")
     }
