@@ -10,7 +10,7 @@
 			<key>taskID</key>
 			<string>1</string>
 			<key>taskName</key>
-			<string>Large metal sculpture</string>
+			<string>Large Metal Sculpture</string>
 			<key>locationName</key>
 			<string>The Sentinel</string>
 			<key>latitude</key>
@@ -30,7 +30,7 @@
 			<key>taskID</key>
 			<string>2</string>
 			<key>taskName</key>
-			<string>Religous Center</string>
+			<string>Religious Center</string>
 			<key>locationName</key>
 			<string>Schmitt Interfaith Center</string>
 			<key>latitude</key>
@@ -58,7 +58,7 @@
 			<key>longitude</key>
 			<string>-77.673876</string>
 			<key>hint</key>
-			<string>When lost or have questions, this is the central place to find some help. You can also find the old swimming hall bleachers here as a fountain and a dozen organization offices.  You can find it in the building across from the Clark Gym</string>
+			<string>When lost or have questions, this is the central place to find some help. You can also find the old swimming hall bleachers here as a fountain and a dozen organization offices.  You can find it in the building across from the Clark Gym.</string>
 			<key>isActivity</key>
 			<string>0</string>
 			<key>points</key>
@@ -98,7 +98,7 @@
 			<key>longitude</key>
 			<string>-77.676333</string>
 			<key>hint</key>
-			<string>Located in the center of campus, this building is the Tiger&apos;s hunting ground for book rentals and compuers to use. Tigers also use this spot to study, nap, and print assignments. This place is open 24 hours  a day, four times a week. </string>
+			<string>Located in the center of campus, this building is the Tiger&apos;s hunting ground for book rentals and compuers to use. Tigers also use this spot to study, nap, and print assignments.</string>
 			<key>isActivity</key>
 			<string>0</string>
 			<key>points</key>
@@ -114,7 +114,7 @@
 			<key>locationName</key>
 			<string>Java Wally&apos;s Record Wall</string>
 			<key>hint</key>
-			<string>Located in one of RIT&apos;s major coffee spots, the aptly decorated wall features records from the past. You can find the hip coffee spot among the books.</string>
+			<string>Located in one of RIT&apos;s major coffee spots, the aptly decorated wall features records from the past. You can find the wall in the same building as the library.</string>
 			<key>isActivity</key>
 			<string>1</string>
 			<key>points</key>
@@ -191,6 +191,282 @@
 			<string>1</string>
 			<key>points</key>
 			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>11</string>
+			<key>taskName</key>
+			<string>Brand new hockey</string>
+			<key>locationName</key>
+			<string>Gene Polisseni Center</string>
+			<key>latitude</key>
+			<string>43.082677</string>
+			<key>longitude</key>
+			<string>-77.674620</string>
+			<key>hint</key>
+			<string>This ice rink is where Tigers gather to watch hockey. One of two rinks on campus, this one is newer, bigger, and better.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>12</string>
+			<key>taskName</key>
+			<string>The Success Machine</string>
+			<key>locationName</key>
+			<string>Office of Career Services</string>
+			<key>latitude</key>
+			<string>43.086064</string>
+			<key>longitude</key>
+			<string>-77.675464</string>
+			<key>hint</key>
+			<string>This place is home to RIT&apos;s career services and co-op program. Every semester this office hosts a career fair to help Tigers score internships, co-ops, and Fulltime jobs.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>25</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>13</string>
+			<key>taskName</key>
+			<string>Selfie with RITchie</string>
+			<key>locationName</key>
+			<string>Unknown</string>
+			<key>hint</key>
+			<string>Known to show up at sporting events, the Tiger&apos;s beloved mascot provides morale and fun whereever he goes.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>50</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>14</string>
+			<key>taskName</key>
+			<string>Dine at Grace Waston Hall</string>
+			<key>locationName</key>
+			<string>Grace Waston Hall</string>
+			<key>hint</key>
+			<string>This food spot is the cornerstone of ever Tiger&apos;s freshman year. Gracies provides a buffet style to its hungry patrons. You can find it on dormside, close to ResLife.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>15</string>
+			<key>taskName</key>
+			<string>Ride RITchie</string>
+			<key>locationName</key>
+			<string>Center of Campus</string>
+			<key>hint</key>
+			<string>Not to be confused with the living RITChie, this bronze statue showcases the Tigers best side: fierce and determined. You can find him roraing in the middle of campus.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>16</string>
+			<key>taskName</key>
+			<string>Run Tiger Run</string>
+			<key>locationName</key>
+			<string>Gordon Field House</string>
+			<key>latitude</key>
+			<string>43.084868</string>
+			<key>longitude</key>
+			<string>-77.671984</string>
+			<key>hint</key>
+			<string>Central to campus, this gym is the hunting and sweating grounds for fellow Tigers looking to keep in shape. The building houses two tracks, a weight room, olympic size pool, a recreation pool, various basketball and raquet ball courts, and various dance studios. </string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>17</string>
+			<key>taskName</key>
+			<string>Hidden from the sun</string>
+			<key>locationName</key>
+			<string>Sol&apos;s Underground</string>
+			<key>latitude</key>
+			<string>43.085558</string>
+			<key>longitude</key>
+			<string>-77.667156</string>
+			<key>hint</key>
+			<string>Down underneath the dorms, there is a complex ecosystem consisting of tunnels. Here you can find a popular grub spot for fellow dorm residing Tigers.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>25</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>18</string>
+			<key>taskName</key>
+			<string>Snap a picture with tunnel art</string>
+			<key>locationName</key>
+			<string>RIT</string>
+			<key>hint</key>
+			<string>RIT contains a fairly large tunnel system under the various buildings across campus. Tigers thought naturally of course, that they better make it look pretty!</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>25</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>19</string>
+			<key>taskName</key>
+			<string>Deaf theatre</string>
+			<key>locationName</key>
+			<string>Robert Panera Theatre</string>
+			<key>latitude</key>
+			<string>43.087188</string>
+			<key>longitude</key>
+			<string> -77.668315</string>
+			<key>hint</key>
+			<string>Housed in the college dedicated to supporting the Deaf Tiger community, this theatre is known for putting on productions that includes both signing and speech to include all Tigers.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>40</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>20</string>
+			<key>taskName</key>
+			<string>Groceries on the go</string>
+			<key>locationName</key>
+			<string>Corner Store</string>
+			<key>latitude</key>
+			<string>43.084766</string>
+			<key>longitude</key>
+			<string>-77.667278</string>
+			<key>hint</key>
+			<string>This store is known for staying open until 2am to allow hungry Tigers to refill while studying. You can find this store buried in the basement because there&apos;s no way a Tiger is going to brave the cold.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>21</string>
+			<key>taskName</key>
+			<string>Walk on water</string>
+			<key>locationName</key>
+			<string>Rock Fountation</string>
+			<key>hint</key>
+			<string>This fountain is often used in photoshoots to give the appearance that people are walking on water. Typically they use the rocks to help them acheive this goal.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>22</string>
+			<key>taskName</key>
+			<string>Burning the midnight oil</string>
+			<key>locationName</key>
+			<string>Midnight OIl</string>
+			<key>latitude</key>
+			<string>43.082603</string>
+			<key>longitude</key>
+			<string>-77.679697</string>
+			<key>hint</key>
+			<string>One of the many hotspots for coffee on campus, this coffeeshop sells Starbucks and snacks to help keep Tigers full and happy.</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>23</string>
+			<key>taskName</key>
+			<string>Warm yourself by the fire</string>
+			<key>locationName</key>
+			<string>Global Village</string>
+			<key>hint</key>
+			<string>Located in the Global Village Plaza, this spot is known to keep Tigers toasty when it&apos;s cold out. Various events, centering on global activities take place here.</string>
+			<key>isActivity</key>
+			<string>1</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>23</string>
+			<key>taskName</key>
+			<string>Tiger Productions</string>
+			<key>locationName</key>
+			<string>Ingle Auditorium</string>
+			<key>latitude</key>
+			<string>43.084078</string>
+			<key>longitude</key>
+			<string>-77.674276</string>
+			<key>hint</key>
+			<string>This spot is a popular place to see plays and performances by fellow Tigers. You can find the auditorium hidden away in the Student Alumni Union</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>20</string>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>taskID</key>
+			<string>24</string>
+			<key>taskName</key>
+			<string>Retrofitted gym</string>
+			<key>locationName</key>
+			<string>Red Barn Climbing Gym</string>
+			<key>latitude</key>
+			<string>43.084303</string>
+			<key>longitude</key>
+			<string> -77.684760</string>
+			<key>hint</key>
+			<string>On the outskirts of RIT, Tigers come to this old red barn to scale walls. You&apos;ll find there&apos;s more to this building than there seems</string>
+			<key>isActivity</key>
+			<string>0</string>
+			<key>points</key>
+			<string>50</string>
 			<key>imageURL</key>
 			<string></string>
 		</dict>

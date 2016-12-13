@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorageUI
 
 class TaskDetailViewController: UIViewController {
     
@@ -38,11 +39,10 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let uid = "\(self.user?.getUID())"
+        let uid = "\((self.user?.getUID())!)"
         let photoID = "\(self.task.getID())"
-        
         StorageService.storageService.downLoadPhoto(uid: uid, photoID: photoID, imageView: self.taskImageView, view: self.view)
-        
+    
         setData()
         
         navigationController?.navigationBar.tintColor = .white

@@ -28,8 +28,9 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func deleteUser(_ sender: AnyObject) {
-        DataService.dataService.removeUser(self.user!)
-        FIRAuth.auth()?.currentUser?.delete(completion: {action in
+        let currUser = FIRAuth.auth()?.currentUser
+        DataService.dataService.removeUser((currUser?.uid)!)
+        currUser?.delete(completion: {action in
             self.switchRootController(storyboardName: "Login")
         })
     }
@@ -40,7 +41,7 @@ class ProfileViewController: UIViewController {
         
         let uid = "\(self.user?.getUID())"
         
-        StorageService.storageService.downLoadPhoto(uid: uid, photoID: uid, imageView: self.profilePicImageView, view: self.view)
+        StorageService.storageService.downLoadPhoto(uid: uid, photoID: "profile", imageView: self.profilePicImageView, view: self.view)
         
         setData()
         setpLogoutButton()

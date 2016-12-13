@@ -25,6 +25,8 @@ struct Constants {
     static let SIGNOUT_ERROR_TITLE: String = "Sign Out Error"
     static let PASSWORD_RESET_TITLE = "Password Reset"
     static let PASSWORD_RESET_MSG = "Check your email! We've sent you a link."
+    static let PASSWORDS_DO_NOT_MATCH = "Your password do not match, Please try again."
+    static let FIELD_NOT_FILLED = "Oh no! It looks like you forgot a field."
     static let ANIMATION_DELAY: Double = 0.1
     
     // MARK: - Mapview Properties

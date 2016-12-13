@@ -124,4 +124,38 @@ extension UIViewController {
         )
         
     }
+    
+    //MARK: - IMAGE RESIZE AND LOAD
+    func uploadImage(_ capturedImage: UIImage, _ imageView: UIImageView, filePath: String) -> String {
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = capturedImage
+        imageView.maskCircle(view: self.view)
+        
+        dismiss(animated:true, completion: nil)
+        
+        var data = NSData()
+        data = UIImageJPEGRepresentation(imageView.image!, 0.8)! as NSData
+        
+        let downloadURL = StorageService.storageService.uploadPhoto(filePath: filePath, data: data)
+        
+        return downloadURL
+    }
+    
+    func resizeImage(_ info: [String: Any]) -> UIImage {
+        var capturedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let rect = CGRect(x: 0.0, y: 0.0, width: (capturedImage.size.width/6.0), height: (capturedImage.size.height/6.0))
+        
+        UIGraphicsBeginImageContext(rect.size)
+        capturedImage.draw(in: rect)
+        
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //once resized, store as new image and then in imageview
+        let compressedImageData = UIImageJPEGRepresentation(resizedImage!, 0.1)
+        capturedImage = UIImage(data: compressedImageData!)!
+        
+        return capturedImage
+    }
 }

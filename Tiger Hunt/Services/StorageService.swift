@@ -27,7 +27,7 @@ class StorageService {
     //MARK: STORAGE FUNCS
     func uploadPhoto(filePath: String, data: NSData) -> String {
         var downloadUrl: String = ""
-     
+        
         IMAGES_REF.child(filePath).put(data as Data, metadata: nil){(metaData,error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -41,18 +41,19 @@ class StorageService {
     }
     
     func downLoadPhoto(uid: String, photoID: String, imageView: UIImageView, view: UIView) {
-        let imageRef = StorageService.storageService.IMAGES_REF.child(uid)
-        imageRef.child("\(photoID).jpg").downloadURL(completion: { url, error in
-            print(url)
-            
-            if error != nil {
-                imageView.image = UIImage(named: "not-submitted.png")
+        
+        let ref = StorageService.storageService.IMAGES_REF.child(uid).child("\(photoID).jpg")
+        
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        ref.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+            if (error != nil) {
+                print(error?.localizedDescription)
             } else {
-                if let imageData = NSData(contentsOf: url!), let image = UIImage(data: imageData as Data) {
-                    imageView.image = image
-                    imageView.maskCircle(view: view)
-                }
+                // Data for "images/island.jpg" is returned
+                let image: UIImage! = UIImage(data: data!)
+                imageView.image = image
             }
-        })
+        }
     }
 }
+

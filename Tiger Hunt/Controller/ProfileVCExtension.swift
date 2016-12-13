@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     //MARK: - Delegates
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.profilePicImageView.contentMode = .scaleAspectFit
-        self.profilePicImageView.image = chosenImage
-        self.profilePicImageView.maskCircle(view: self.view)
+        let capturedImage = self.resizeImage(info)
         
-        dismiss(animated:true, completion: nil)
+        // set upload path
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        let filePath = "\(uid)/profile.jpg"
+        self.uploadImage(capturedImage, self.profilePicImageView, filePath: filePath)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

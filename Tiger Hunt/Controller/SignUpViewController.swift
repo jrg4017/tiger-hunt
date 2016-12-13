@@ -84,28 +84,47 @@ class SignUpViewController: UIViewController {
     
     // MARK: - IBACTION
     @IBAction func registerUser(_ sender: UIButton) {
-        FIRAuth.auth()!.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { user, error in
-            if error != nil {
-                if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
-                    var msg = ""
-                    switch errCode {
-                        case .errorCodeWeakPassword:
-                            //msg = self.ACCOUNT_NOT_ENABLED
-                            msg = Constants.WEAK_PASSWORD_MSG
-                        case .errorCodeInvalidEmail:
-                            msg = Constants.INVALID_EMAIL_MSG
-                        default:
-                            msg = Constants.GENERIC_ERROR_MSG
-                        }
+        if verifyInput() {
+            FIRAuth.auth()!.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { user, error in
+                if error != nil {
+                    if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                        var msg = ""
+                        switch errCode {
+                            case .errorCodeWeakPassword:
+                                msg = Constants.WEAK_PASSWORD_MSG
+                            case .errorCodeInvalidEmail:
+                                msg = Constants.INVALID_EMAIL_MSG
+                            default:
+                                msg = Constants.GENERIC_ERROR_MSG
+                            }
                     
-                    self.loginAlert(title: Constants.SIGNUP_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
+                        self.loginAlert(title: Constants.SIGNUP_ERROR_TITLE, msg: msg, textField: self.passwordTextField)
+                    }
+                } else {
+                    FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
+                    self.writeUID((user?.uid)!)
+                    let newUser = self.loadUser(user!, self.nameTextField.text!)
+                    DataService.dataService.persistUser(newUser)
                 }
-            } else {
-                FIRAuth.auth()!.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!)
-                self.writeUID((user?.uid)!)
-                let newUser = self.loadUser(user!, self.nameTextField.text!)
-                DataService.dataService.persistUser(newUser)
             }
         }
+    }
+    
+    func verifyInput() -> Bool {
+        for textField in self.textFieldArray {
+            if textField.text == "" || textField.text == nil {
+                self.loginAlert(title: Constants.SIGNUP_ERROR_TITLE, msg: Constants.FIELD_NOT_FILLED, textField: nil)
+                
+                return false
+            }
+            
+            if passwordTextField.text != confirmPassTextField.text {
+                self.loginAlert(title: Constants.SIGNUP_ERROR_TITLE, msg: Constants.PASSWORDS_DO_NOT_MATCH, textField: nil)
+                
+                return false
+            }
+        }
+        
+        return true
     }
 }

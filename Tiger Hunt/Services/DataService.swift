@@ -45,7 +45,7 @@ class DataService {
         self.USERS_REF.child(user.getUID()).setValue(dict)
     }
     
-    func removeUser(_ user: User) {
-        USERS_REF.child(user.getUID()).removeValue()
+    func removeUser(_ uid: String) {
+        USERS_REF.child(uid).removeValue()
     }
 }

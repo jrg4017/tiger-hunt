@@ -6,24 +6,19 @@
 //
 
 import UIKit
+import Photos
+import FirebaseStorage
 
 extension TaskDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     //MARK: - Delegates
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.taskImageView.contentMode = .scaleAspectFit
-        self.taskImageView.image = chosenImage
-        self.taskImageView.maskCircle(view: self.view)
+        let capturedImage = self.resizeImage(info)
         
-        dismiss(animated:true, completion: nil)
-        
-        var data = NSData()
-        data = UIImageJPEGRepresentation(self.taskImageView.image!, 0.8)! as NSData
         // set upload path
         let uid: String = (self.user?.getUID())!
         let filePath = "\(uid)/\("\(self.task.getID()).jpg")"
-        
-        let downloadURL = StorageService.storageService.uploadPhoto(filePath: filePath, data: data)
+        let downloadURL = self.uploadImage(capturedImage, self.taskImageView, filePath: filePath)
+
         self.task.setCompletedImageURL(downloadURL)
         
         self.insertCompletedTask(task: self.task)
@@ -32,4 +27,6 @@ extension TaskDetailViewController: UIImagePickerControllerDelegate, UINavigatio
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
 }

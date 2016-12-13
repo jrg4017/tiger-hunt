@@ -253,7 +253,7 @@
                         <viewControllerLayoutGuide type="top" id="aJA-T6-WPr"/>
                         <viewControllerLayoutGuide type="bottom" id="c98-6g-u3q"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FnJ-nV-tsR">
+                    <view key="view" tag="4" contentMode="scaleToFill" id="FnJ-nV-tsR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -261,75 +261,67 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tiger-marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z2i-OQ-w8K">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="107" id="pq0-I8-kUA"/>
+                                            <constraint firstAttribute="width" constant="107" id="4AX-Ye-mXg"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Z2i-OQ-w8K" firstAttribute="top" secondItem="8qP-KG-aOK" secondAttribute="top" constant="58" id="UhA-6c-PFc"/>
-                                    <constraint firstItem="Z2i-OQ-w8K" firstAttribute="centerY" secondItem="8qP-KG-aOK" secondAttribute="centerY" id="jgt-Wx-KfB"/>
-                                    <constraint firstItem="Z2i-OQ-w8K" firstAttribute="centerX" secondItem="8qP-KG-aOK" secondAttribute="centerX" id="l3H-Bb-VRo"/>
+                                    <constraint firstItem="Z2i-OQ-w8K" firstAttribute="centerY" secondItem="8qP-KG-aOK" secondAttribute="centerY" id="3ui-Sl-Z83"/>
+                                    <constraint firstItem="Z2i-OQ-w8K" firstAttribute="top" secondItem="8qP-KG-aOK" secondAttribute="top" constant="58" id="mui-TH-huk"/>
+                                    <constraint firstItem="Z2i-OQ-w8K" firstAttribute="centerX" secondItem="8qP-KG-aOK" secondAttribute="centerX" id="qcW-PE-mS3"/>
                                 </constraints>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="zt6-tz-ijX">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="tEe-mm-Xzd"/>
-                                </constraints>
                                 <color key="pageIndicatorTintColor" red="0.87450980389999999" green="0.87058823529999996" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.43137254899999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annotation.png" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-pq-wmz">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="78" id="k0p-I0-9Xx"/>
+                                    <constraint firstAttribute="height" constant="78" id="JpH-RZ-SwB"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Tiger Hunt!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-GH-k8l">
-                                <frame key="frameInset" minX="34" minY="323" width="307" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9l-za-k0x">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="vBI-8X-G1F"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9l-za-k0x">
-                                <frame key="frameInset" minX="34" minY="376" width="307" height="154"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="m8t-IJ-DQv"/>
+                                    <constraint firstAttribute="height" constant="135" id="Fkg-Z2-Hb8"/>
                                 </constraints>
                                 <string key="text">Click on a marker to view clues about tasks. You can view how many points it's worth. Keep in mind not all tasks are physical locations!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tiger Hunt!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-GH-k8l">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="FKP-bo-LBI"/>
+                                    <constraint firstAttribute="width" constant="343" id="S5z-vt-lOW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="s5u-pq-wmz" firstAttribute="top" secondItem="aJA-T6-WPr" secondAttribute="bottom" constant="23" id="02t-a6-NhY"/>
-                            <constraint firstItem="g9l-za-k0x" firstAttribute="centerX" secondItem="zt6-tz-ijX" secondAttribute="centerX" id="19D-hs-R4c"/>
-                            <constraint firstItem="g9l-za-k0x" firstAttribute="top" secondItem="fvI-GH-k8l" secondAttribute="bottom" constant="14" id="2Dc-Zi-9tE"/>
-                            <constraint firstItem="s5u-pq-wmz" firstAttribute="leading" secondItem="FnJ-nV-tsR" secondAttribute="leadingMargin" constant="67" id="4Uf-RB-gA5"/>
-                            <constraint firstAttribute="trailing" secondItem="8qP-KG-aOK" secondAttribute="trailing" id="IWh-pK-Elj"/>
-                            <constraint firstItem="zt6-tz-ijX" firstAttribute="top" secondItem="g9l-za-k0x" secondAttribute="bottom" constant="92" id="JKU-wq-RKT"/>
-                            <constraint firstItem="8qP-KG-aOK" firstAttribute="leading" secondItem="FnJ-nV-tsR" secondAttribute="leading" id="KPZ-CO-rbg"/>
-                            <constraint firstItem="8qP-KG-aOK" firstAttribute="top" secondItem="aJA-T6-WPr" secondAttribute="bottom" constant="8" symbolic="YES" id="LLd-XI-8fl"/>
-                            <constraint firstItem="fvI-GH-k8l" firstAttribute="trailing" secondItem="g9l-za-k0x" secondAttribute="trailing" id="LRg-bM-s2S"/>
-                            <constraint firstItem="s5u-pq-wmz" firstAttribute="centerX" secondItem="fvI-GH-k8l" secondAttribute="centerX" id="NRV-YY-7bf"/>
-                            <constraint firstItem="8qP-KG-aOK" firstAttribute="centerX" secondItem="s5u-pq-wmz" secondAttribute="centerX" id="Olh-FD-Ptu"/>
-                            <constraint firstItem="fvI-GH-k8l" firstAttribute="top" secondItem="8qP-KG-aOK" secondAttribute="bottom" constant="26" id="Ybt-Qo-2Mg"/>
-                            <constraint firstItem="fvI-GH-k8l" firstAttribute="leading" secondItem="g9l-za-k0x" secondAttribute="leading" id="jRa-Zf-oyK"/>
-                            <constraint firstItem="c98-6g-u3q" firstAttribute="top" secondItem="zt6-tz-ijX" secondAttribute="bottom" constant="8" symbolic="YES" id="oaK-9W-o6M"/>
+                            <constraint firstItem="g9l-za-k0x" firstAttribute="top" secondItem="fvI-GH-k8l" secondAttribute="bottom" constant="8" symbolic="YES" id="012-gk-2l3"/>
+                            <constraint firstItem="g9l-za-k0x" firstAttribute="leading" secondItem="FnJ-nV-tsR" secondAttribute="leadingMargin" id="4Qe-Aq-Ccb"/>
+                            <constraint firstItem="8qP-KG-aOK" firstAttribute="centerX" secondItem="s5u-pq-wmz" secondAttribute="centerX" id="8aj-Oe-F6N"/>
+                            <constraint firstItem="s5u-pq-wmz" firstAttribute="centerX" secondItem="fvI-GH-k8l" secondAttribute="centerX" id="Caf-Pg-ZPN"/>
+                            <constraint firstItem="s5u-pq-wmz" firstAttribute="top" secondItem="aJA-T6-WPr" secondAttribute="bottom" constant="23" id="JRC-33-z6R"/>
+                            <constraint firstItem="g9l-za-k0x" firstAttribute="centerX" secondItem="zt6-tz-ijX" secondAttribute="centerX" id="VLX-1u-ssN"/>
+                            <constraint firstItem="fvI-GH-k8l" firstAttribute="top" secondItem="FnJ-nV-tsR" secondAttribute="top" constant="323" id="WQJ-IR-xqV"/>
+                            <constraint firstItem="fvI-GH-k8l" firstAttribute="top" secondItem="8qP-KG-aOK" secondAttribute="bottom" constant="26" id="WqL-QY-Ohx"/>
+                            <constraint firstAttribute="trailing" secondItem="8qP-KG-aOK" secondAttribute="trailing" id="bUD-Xg-obp"/>
+                            <constraint firstItem="c98-6g-u3q" firstAttribute="top" secondItem="zt6-tz-ijX" secondAttribute="bottom" constant="8" symbolic="YES" id="brN-xK-IS9"/>
+                            <constraint firstItem="8qP-KG-aOK" firstAttribute="leading" secondItem="FnJ-nV-tsR" secondAttribute="leading" id="ehD-LA-xfZ"/>
+                            <constraint firstItem="s5u-pq-wmz" firstAttribute="leading" secondItem="FnJ-nV-tsR" secondAttribute="leadingMargin" constant="67" id="qAa-Re-Ygz"/>
+                            <constraint firstItem="fvI-GH-k8l" firstAttribute="centerX" secondItem="g9l-za-k0x" secondAttribute="centerX" id="wjz-4a-LaP"/>
+                            <constraint firstItem="8qP-KG-aOK" firstAttribute="top" secondItem="aJA-T6-WPr" secondAttribute="bottom" constant="8" symbolic="YES" id="zrI-cT-z4B"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="annotationVIew" destination="s5u-pq-wmz" id="i8u-qc-yq0"/>
-                        <outlet property="markerImageView" destination="Z2i-OQ-w8K" id="Xou-v4-PMd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRS-3n-TVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1612" y="1628.6356821589206"/>
+            <point key="canvasLocation" x="-1612.5" y="1628.5"/>
         </scene>
         <!--Task Lis Ttutorial View-->
         <scene sceneID="jeV-Nh-KuX">
